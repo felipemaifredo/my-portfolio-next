@@ -1,0 +1,23 @@
+.about_section {
+    height: 70vh;
+    background-color: var(--c-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+    & > h2 {
+        width: 90%;
+        max-width: var(--w-max-width);
+        font-size: var(--fs-title);
+        color: var(--c-white-to-black);
+    }
+
+    & > p {
+        font-size: 1.2rem;
+        max-width: var(--w-max-width);
+        color: var(--c-white-to-black);
+
+    }
+}

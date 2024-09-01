@@ -1,13 +1,8 @@
-import {useTranslations} from 'next-intl'
-import {unstable_setRequestLocale} from 'next-intl/server';
+import {unstable_setRequestLocale} from 'next-intl/server'
+import { Home } from "@/ui/pages/Home"
 
-export default function Home({params: {locale}}: any) {
-  unstable_setRequestLocale(locale);
-  const t = useTranslations('HomePage')
+export default function page({params: {locale}}: any) {
+  unstable_setRequestLocale(locale)
 
-  return (
-    <div>
-      <h1>{t('title')}</h1>
-    </div>
-  )
+  return <Home />
 }

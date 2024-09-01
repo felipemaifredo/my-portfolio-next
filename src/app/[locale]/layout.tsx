@@ -1,9 +1,9 @@
 import "../../globals.css"
 import type { Metadata } from "next"
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
-import {routing} from '../../i18n/routing'
-import {unstable_setRequestLocale} from 'next-intl/server'
+import { NextIntlClientProvider } from "next-intl"
+import { getMessages } from "next-intl/server"
+import {routing} from "../../i18n/routing"
+import {unstable_setRequestLocale} from "next-intl/server"
 
 type LayoutTypes = {
   children: React.ReactNode
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({locale}))
 }
 
 export default async function LocaleLayout({ children, params: { locale } }: LayoutTypes) {
@@ -26,7 +26,7 @@ export default async function LocaleLayout({ children, params: { locale } }: Lay
   return (
     <NextIntlClientProvider messages={messages}>
       <html lang={locale}>
-        <body>
+        <body data-theme="t-light" data-color="t-green">
           {children}
         </body>
       </html>

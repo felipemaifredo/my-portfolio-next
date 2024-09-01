@@ -1,0 +1,43 @@
+.hero_section {
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data_container {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.canvas_animation {
+    height: 100%;
+    width: 50%;   
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--c-primary);
+    width: auto;
+    height: 350px;
+
+    & > .p_1 {
+        font-size: 25rem;
+        margin-bottom: -90px;
+    }
+
+    & > .p_2 {
+        font-size: 6.5rem;
+    }
+
+    & > .p_3 {
+        font-size: 3rem;
+    }
+}
