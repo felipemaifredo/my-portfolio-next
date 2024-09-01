@@ -4,9 +4,15 @@ import {createSharedPathnamesNavigation} from "next-intl/navigation"
 export const routing = defineRouting({
   // A list of all locales that are supported
   locales: ["pt", "en"],
- 
   // Used when no locale matches
-  defaultLocale: "pt"
+  defaultLocale: "en",
+  pathnames: {
+    "/": "/",
+    "/works": {
+      pt: "/trabalhos",
+      en: "/works",
+    }
+  }
 })
  
 // Lightweight wrappers around Next.js" navigation APIs
