@@ -1,6 +1,6 @@
 "use client"
 //imports
-import "./Styles/Contact.style.css"
+import "./Styles/contact.css"
 import React, { useState } from "react"
 import { VscGithub } from "react-icons/vsc"
 import { AiOutlineLinkedin } from "react-icons/ai"
