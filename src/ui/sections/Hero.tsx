@@ -1,6 +1,7 @@
 import { MatrixRain } from "../components/animation_screens/MatrixRain"
 import styles from "./styles/hero_styles.module.css"
 import { Observer } from "../components/Observer/observer"
+
 export const Hero = () => {
     return (
         <section id="hero_section" className={styles.hero_section}>

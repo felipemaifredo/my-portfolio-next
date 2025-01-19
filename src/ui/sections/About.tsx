@@ -4,6 +4,7 @@ import { Observer } from "../components/Observer/observer"
 
 export const About = () => {
     const t = useTranslations("HomePage")
+    
     return (
         <section id="about_section" className={styles.about_section}>
             <Observer>

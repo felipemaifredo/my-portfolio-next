@@ -1,4 +1,4 @@
-import { LuCode2 } from "react-icons/lu"
+import { LuCode } from "react-icons/lu"
 import { GoGear } from "react-icons/go"
 import { LuLibrary } from "react-icons/lu"
 import styles from "./styles/projects_home.module.css"
@@ -19,9 +19,9 @@ type RenderItemLinkProjectType = {
 
 const renderItems = [
     {
-        icon: <LuCode2 />,
+        icon: <LuCode />,
         title: "Projetos",
-        descrip: "Ferramentas criadas para treinar e me aprimorar em desenvolvimento web.",
+        descrip: "Ferramentas criadas para treinar e me aprimorar.",
         link: "projects"
     }, {
         icon: <GoGear />,
@@ -41,7 +41,7 @@ const RenderItemLinkProject = ({ item }: RenderItemLinkProjectType) => (
         {item.icon}
         <p className={styles.title}>{item.title}</p>
         <p>{item.descrip}</p>
-        <Link href={`/${item.link}`}>
+        <Link href={`/${item.link}` as any}>
             <IoArrowForwardCircleOutline />
         </Link>
     </div>
