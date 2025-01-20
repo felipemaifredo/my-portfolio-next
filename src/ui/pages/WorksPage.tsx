@@ -12,6 +12,7 @@ import imgInnc from "@/resources/assets/works/innc.png"
 import imgUbiOne from "@/resources/assets/works/ubione.png"
 import eboEcommerce from "@/resources/assets/works/ebo-ecomerce.png"
 import lancamentos from "@/resources/assets/works/lancamentos.png"
+import pontoverde from "@/resources/assets/works/ponto-verde.png"
 
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
@@ -50,6 +51,13 @@ const worksData: WorksType[] = [
         image: imgInnc,
         link: "",
         tags: ["React", "CSS", "Firebase"]
+    },
+    {
+        name: "Ponto Verde",
+        description: "Website institucional para divulgar soluções em energia solar.",
+        image: pontoverde,
+        link: "",
+        tags: ["HTML", "CSS",]
     },
     {
         name: "Premold",
