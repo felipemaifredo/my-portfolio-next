@@ -5,6 +5,7 @@ import { FaRegEye, FaCode } from "react-icons/fa6"
 import Pokedex from "@/resources/assets/projects/pokedex.png"
 import PassGene from "@/resources/assets/projects/pass_gene.png"
 import AcoutsNode from "@/resources/assets/projects/accounts-node.png"
+import Kanban from "@/resources/assets/projects/kanban.png"
 
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
@@ -20,6 +21,13 @@ type ProjectTypes = {
 
 const projectsData: ProjectTypes[] = [
     {
+        name: "Quadro Kanban",
+        description: "Quadro Kanban feito com next.",
+        image: Kanban,
+        link_1: "https://github.com/felipemaifredo/kanban-next",
+        link_2: "https://kanban-next-felipemaifredo.vercel.app/",
+        tags: [ "Next", "CSS" ]
+    },{
         name: "Pokedex",
         description: "Um dos Meus Primeiros Projetos utilizando APIs com Javascript/React.",
         image: Pokedex,
