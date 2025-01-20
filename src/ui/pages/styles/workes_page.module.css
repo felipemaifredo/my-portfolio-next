@@ -17,7 +17,7 @@
         align-items: flex-start;
         justify-content: flex-start;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 10px;
 
         & > div {
             width: 300px;
@@ -48,6 +48,7 @@
                 & .title {
                     width: 100%;
                     font-weight: 600;
+                    margin-bottom: 15px;
                 }
             }
     

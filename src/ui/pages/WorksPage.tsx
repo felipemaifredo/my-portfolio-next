@@ -24,49 +24,56 @@ type WorksType = {
 const worksData: WorksType[] = [
     {
         name: "UbiOne",
-        description: "aaaaaaaaaaaaaaaaa",
+        description: "Site institucional para apresentar um chatbot inteligente e suas funcionalidades.",
         image: imgUbiOne,
         link: "",
         tags: ["HTML", "CSS", "Javascript"]
-    }, {
+    },
+    {
         name: "Innc",
-        description: "",
+        description: "Site institucional para promover a saúde mental.",
         image: imgInnc,
         link: "",
         tags: ["React", "CSS"]
-    }, {
+    },
+    {
         name: "Premold",
-        description: "",
+        description: "Site institucional para promover soluções em peças pré-moldadas.",
         image: imgPremold,
         link: "",
         tags: ["React", "CSS"]
-    }, {
+    },
+    {
         name: "João Henrrique Advogado",
-        description: "",
+        description: "Website institucional destacando serviços jurídicos personalizados.",
         image: imgJHB,
         link: "",
         tags: ["React", "CSS"]
-    }, {
+    },
+    {
         name: "V&C",
-        description: "",
+        description: "Website institucional destacando serviços de educação.",
         image: imgVeC,
         link: "",
         tags: ["React", "CSS"]
-    }, {
+    },
+    {
         name: "Total Seg",
-        description: "",
+        description: "Catálogo online para exibição de equipamentos e serviços de segurança.",
         image: imgTotalSeg,
         link: "",
         tags: ["React", "CSS"]
-    }, {
-        name: "Lobo Adovacia",
-        description: "",
+    },
+    {
+        name: "Lobo Advocacia",
+        description: "Site institucional para destacar os serviços de advocacia da empresa.",
         image: imgLoboADV,
         link: "",
         tags: ["HTML", "CSS", "Javascript"]
-    }, {
+    },
+    {
         name: "Brusun Energia Solar",
-        description: "",
+        description: "Website institucional para divulgar soluções em energia solar.",
         image: imgBrusun,
         link: "",
         tags: ["HTML", "CSS", "Javascript"]
