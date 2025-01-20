@@ -1,9 +1,5 @@
+import { WorksPage } from "@/ui/pages/WorksPage"
 
-export default function page({params}: any) {
-
-  return (
-    <div>
-      works
-    </div>
-  )
+export default function page() {
+  return <WorksPage />
 }

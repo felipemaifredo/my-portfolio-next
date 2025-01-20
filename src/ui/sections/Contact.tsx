@@ -10,13 +10,15 @@ import { Observer } from "../components/Observer/observer"
 //Configs
 const linkToFetch = "https://formsubmit.co/felipemaifredo@gmail.com"
 
+const defaultForm = {
+  name: "",
+  whatsOrEmail: "",
+  subject: "",
+}
+
 export const Contact = () => {
   const [textBTN, setTextBTN] = useState("Enviar")
-  const [formData, setFormData] = useState({
-    name: "",
-    whatsOrEmail: "",
-    subject: "",
-  })
+  const [formData, setFormData] = useState(defaultForm)
 
   function sendEmail(e: any) {
     e.preventDefault()
@@ -48,11 +50,7 @@ export const Contact = () => {
   }
 
   function clearForm() {
-    setFormData({
-      name: "",
-      whatsOrEmail: "",
-      subject: ""
-    })
+    setFormData(defaultForm)
   }
 
   return (

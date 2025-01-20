@@ -1,10 +1,14 @@
+"use client"
+import styles from "./styles/projects_home.module.css"
+
 import { LuCode } from "react-icons/lu"
 import { GoGear } from "react-icons/go"
 import { LuLibrary } from "react-icons/lu"
-import styles from "./styles/projects_home.module.css"
 import { IoArrowForwardCircleOutline } from "react-icons/io5"
-import { Observer } from "../components/Observer/observer"
+
 import { Link } from "@/i18n/routing"
+import { Observer } from "../components/Observer/observer"
+import { PageTransition } from "@/ui/components/PageTransition/PageTransition"
 
 type cardItem = {
     icon: any
@@ -41,7 +45,7 @@ const RenderItemLinkProject = ({ item }: RenderItemLinkProjectType) => (
         {item.icon}
         <p className={styles.title}>{item.title}</p>
         <p>{item.descrip}</p>
-        <Link href={`/${item.link}` as any}>
+        <Link href={`/${item.link}` as any} onClick={() => PageTransition()}>
             <IoArrowForwardCircleOutline />
         </Link>
     </div>

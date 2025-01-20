@@ -1,0 +1,54 @@
+
+body {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        background-color: var(--c-primary);
+        height: 100%;
+        z-index: 12;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        background-color: var(--c-white-to-black);
+        height: 100%;
+        z-index: 11;
+    }
+}
+
+body.page-transition {
+
+    &::after {
+        animation: pagetransition .5s linear 2 alternate;
+    }
+
+    &::before {
+        animation: pagetransition .5s linear 1 alternate-reverse;
+    }
+}
+
+@keyframes pagetransition {
+    from {
+        width: 0%;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    75% {
+        width: 100%;
+    }
+
+    to {
+        width: 100%;
+    }
+}

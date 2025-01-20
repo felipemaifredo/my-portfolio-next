@@ -8,6 +8,7 @@ import { LuLibrary } from "react-icons/lu"
 import { useState, useEffect } from "react"
 import { Link } from "@/i18n/routing"
 import { usePathname } from "@/i18n/routing"
+import { PageTransition } from "./PageTransition/PageTransition"
 
 type NavLinkTypes = {
     link: string
@@ -70,7 +71,7 @@ export const Nav = () => {
                     {navLink.icon}
                 </a>
             ) : (
-                <Link key={navLink.link} href="/">
+                <Link onClick={() => PageTransition()} key={navLink.link} href="/">
                     {navLink.icon}
                 </Link>
             )
