@@ -1,6 +1,6 @@
 .workes_page {
     background-color: var(--c-primary);
-    padding: 50px 150px;
+    padding: 100px 150px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -17,7 +17,7 @@
         align-items: flex-start;
         justify-content: flex-start;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 15px;
 
         & > div {
             width: 300px;

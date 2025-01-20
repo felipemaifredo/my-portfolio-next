@@ -1,7 +1,6 @@
 import styles from "./styles/workes_page.module.css"
-import { FaRegEye } from "react-icons/fa6"
 import Image from "next/image"
-
+import { FaRegEye } from "react-icons/fa6"
 import imgBrusun from "@/resources/assets/works/brusun.png"
 import imgLoboADV from "@/resources/assets/works/loboadv.png"
 import imgTotalSeg from "@/resources/assets/works/totalseg.png"
@@ -81,9 +80,9 @@ const worksData: WorksType[] = [
     },
 ]
 
-export const WorksPage = () => {
-    const t = useTranslations("WorksPage")
-    
+export const ProjectsPage = () => {
+    const t = useTranslations("ProjectsPage")
+
     return (
         <div className={styles.workes_page}>
             <h2>{t("title")}</h2>
