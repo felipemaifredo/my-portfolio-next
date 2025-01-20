@@ -1,82 +1,44 @@
 import styles from "./styles/workes_page.module.css"
 import Image from "next/image"
-import { FaRegEye } from "react-icons/fa6"
-import imgBrusun from "@/resources/assets/works/brusun.png"
-import imgLoboADV from "@/resources/assets/works/loboadv.png"
-import imgTotalSeg from "@/resources/assets/works/totalseg.png"
-import imgVeC from "@/resources/assets/works/vec.png"
-import imgJHB from "@/resources/assets/works/jhn.png"
-import imgPremold from "@/resources/assets/works/premold.png"
-import imgInnc from "@/resources/assets/works/innc.png"
-import imgUbiOne from "@/resources/assets/works/ubione.png"
+import { FaRegEye, FaCode } from "react-icons/fa6"
+
+import Pokedex from "@/resources/assets/projects/pokedex.png"
+import PassGene from "@/resources/assets/projects/pass_gene.png"
+import AcoutsNode from "@/resources/assets/projects/accounts-node.png"
 
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 
-type WorksType = {
+type ProjectTypes = {
     name: string
     description: string
     image: any
-    link: string
+    link_1: string
+    link_2?: string
     tags: any[]
 }
 
-const worksData: WorksType[] = [
+const projectsData: ProjectTypes[] = [
     {
-        name: "UbiOne",
-        description: "Site institucional para apresentar um chatbot inteligente e suas funcionalidades.",
-        image: imgUbiOne,
-        link: "",
-        tags: ["HTML", "CSS", "Javascript"]
-    },
-    {
-        name: "Innc",
-        description: "Site institucional para promover a saúde mental.",
-        image: imgInnc,
-        link: "",
-        tags: ["React", "CSS"]
-    },
-    {
-        name: "Premold",
-        description: "Site institucional para promover soluções em peças pré-moldadas.",
-        image: imgPremold,
-        link: "",
-        tags: ["React", "CSS"]
-    },
-    {
-        name: "João Henrrique Advogado",
-        description: "Website institucional destacando serviços jurídicos personalizados.",
-        image: imgJHB,
-        link: "",
-        tags: ["React", "CSS"]
-    },
-    {
-        name: "V&C",
-        description: "Website institucional destacando serviços de educação.",
-        image: imgVeC,
-        link: "",
-        tags: ["React", "CSS"]
-    },
-    {
-        name: "Total Seg",
-        description: "Catálogo online para exibição de equipamentos e serviços de segurança.",
-        image: imgTotalSeg,
-        link: "",
-        tags: ["React", "CSS"]
-    },
-    {
-        name: "Lobo Advocacia",
-        description: "Site institucional para destacar os serviços de advocacia da empresa.",
-        image: imgLoboADV,
-        link: "",
-        tags: ["HTML", "CSS", "Javascript"]
-    },
-    {
-        name: "Brusun Energia Solar",
-        description: "Website institucional para divulgar soluções em energia solar.",
-        image: imgBrusun,
-        link: "",
-        tags: ["HTML", "CSS", "Javascript"]
+        name: "Pokedex",
+        description: "Um dos Meus Primeiros Projetos utilizando APIs com Javascript/React.",
+        image: Pokedex,
+        link_1: "https://github.com/felipemaifredo/pokedex-ap",
+        link_2: "https://felipemaifredo.github.io/pokedex-app/",
+        tags: [ "React", "CSS" ]
+    },{
+        name: "Gerador de Senhas",
+        description: "Um dos Meus Primeiros Projetos com Javascript, criando gerador de senha.",
+        image: PassGene,
+        link_1: "https://github.com/felipemaifredo/password_generator",
+        link_2: "https://felipemaifredo.github.io/password_generator/",
+        tags: [ "HTML", "CSS", "Javascript" ]
+    },{
+        name: "Simulador de Banco",
+        description: "Um dos Meus Primeiros Projetos com Nodejs, Projeto Simples de Simulação de Banco.",
+        image: AcoutsNode,
+        link_1: "https://github.com/felipemaifredo/accounts_node",
+        tags: [ "Node", ]
     },
 ]
 
@@ -87,27 +49,32 @@ export const ProjectsPage = () => {
         <div className={styles.workes_page}>
             <h2>{t("title")}</h2>
             <div>
-                {worksData.map((workData: WorksType) => (
-                    <div key={workData.name}>
+                {projectsData.map((projectData: ProjectTypes) => (
+                    <div key={projectData.name}>
                         <Image
-                            src={workData.image}
+                            src={projectData.image}
                             width={300}
                             height={200}
                             alt="Imagem de projeto"
                         />
                         <div>
-                            <p className={styles.title}>{workData.name}</p>
-                            <p>{workData.description}</p>
+                            <p className={styles.title}>{projectData.name}</p>
+                            <p>{projectData.description}</p>
                         </div>
                         <div className={styles.tags_container}>
-                            {workData.tags.map((tag: any) => (
+                            {projectData.tags.map((tag: any) => (
                                 <p className={styles[tag]} key={tag}>{tag}</p>
                             ))}
                         </div>
                         <div className={styles.btn_container}>
-                            <Link href={workData.link as any} target="_blank">
+                            <Link href={projectData.link_1 as any} target="_blank">
                                 <FaRegEye />
                             </Link>
+                            {projectData.link_2 && (
+                                <Link href={projectData.link_2 as any} target="_blank">
+                                    <FaCode />
+                                </Link>
+                            )}
                         </div>
                     </div>
                 ))}

@@ -1,4 +1,5 @@
 .workes_page {
+    min-height: 100vh;
     background-color: var(--c-primary);
     padding: 100px 150px;
     display: flex;
@@ -37,7 +38,7 @@
     
             & > img {
                 width: 100%;
-                height: 200px;
+                min-height: 200px;
                 object-fit: cover;
             }
     
@@ -54,11 +55,13 @@
     
             & > .btn_container {
                 width: 100%;
+                min-height: 60px;
                 height: 60px;
                 background-color: rgb(211, 211, 211);
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                gap: 30px;
     
                 & > a {
                     height: 30px;
@@ -95,7 +98,7 @@
 
     & > .React {
         font-weight: 600;
-        background-color: #63dffe;
+        background-color: #3bd5fc;
         padding: 5px;
         color: #fff;
     }
@@ -110,6 +113,27 @@
     & > .Typescript {
         font-weight: 600;
         background-color: #dfc922;
+        padding: 5px;
+        color: #fff;
+    }
+
+    & > .Node {
+        font-weight: 600;
+        background-color: #709d53;
+        padding: 5px;
+        color: #fff;
+    }
+
+    & > .Next {
+        font-weight: 600;
+        background-color: #0c0c0c;
+        padding: 5px;
+        color: #fff;
+    }
+
+    & > .Firebase {
+        font-weight: 600;
+        background-color: #f5c229;
         padding: 5px;
         color: #fff;
     }

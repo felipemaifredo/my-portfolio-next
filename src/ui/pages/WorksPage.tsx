@@ -10,6 +10,8 @@ import imgJHB from "@/resources/assets/works/jhn.png"
 import imgPremold from "@/resources/assets/works/premold.png"
 import imgInnc from "@/resources/assets/works/innc.png"
 import imgUbiOne from "@/resources/assets/works/ubione.png"
+import eboEcommerce from "@/resources/assets/works/ebo-ecomerce.png"
+import lancamentos from "@/resources/assets/works/lancamentos.png"
 
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
@@ -24,6 +26,18 @@ type WorksType = {
 
 const worksData: WorksType[] = [
     {
+        name: "E-commerce E-Bordados",
+        description: "Front-end híbrido de e-commerce completo feito em next com uso eficiente de cache.",
+        image: eboEcommerce,
+        link: "https://next.e-bordados.net/",
+        tags: [ "Next", "CSS" ]
+    },{
+        name: "E-Bordados Lançamentos",
+        description: "Sistema de lançamento de cursos, com captação de leads, controle de aulas.",
+        image: lancamentos,
+        link: "",
+        tags: ["Next", "Node", "CSS", "Firebase"]
+    },{
         name: "UbiOne",
         description: "Site institucional para apresentar um chatbot inteligente e suas funcionalidades.",
         image: imgUbiOne,
@@ -35,21 +49,21 @@ const worksData: WorksType[] = [
         description: "Site institucional para promover a saúde mental.",
         image: imgInnc,
         link: "",
-        tags: ["React", "CSS"]
+        tags: ["React", "CSS", "Firebase"]
     },
     {
         name: "Premold",
         description: "Site institucional para promover soluções em peças pré-moldadas.",
         image: imgPremold,
         link: "",
-        tags: ["React", "CSS"]
+        tags: ["React", "CSS", "Firebase"]
     },
     {
         name: "João Henrrique Advogado",
         description: "Website institucional destacando serviços jurídicos personalizados.",
         image: imgJHB,
         link: "",
-        tags: ["React", "CSS"]
+        tags: ["React", "CSS", "Firebase"]
     },
     {
         name: "V&C",
@@ -63,7 +77,7 @@ const worksData: WorksType[] = [
         description: "Catálogo online para exibição de equipamentos e serviços de segurança.",
         image: imgTotalSeg,
         link: "",
-        tags: ["React", "CSS"]
+        tags: ["React", "CSS", "Firebase"]
     },
     {
         name: "Lobo Advocacia",
