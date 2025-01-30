@@ -1,6 +1,12 @@
 :root {
   --fs-title: 4.5rem;
   --w-max-width: 1100px;
+
+  --cor-1 : #113755;
+  --cor-2 : #144569;
+  --cor-3 : #041524;
+  --cor-4 : #ffffff;
+  --cor-5 : #ebefe7;
 }
 
 /*---- COLORS WHITE -----*/
