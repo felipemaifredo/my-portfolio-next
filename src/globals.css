@@ -31,8 +31,8 @@ body[data-theme="t-light"][data-color="t-rose"] {
 /*---- COLORS BLACK -----*/
 body[data-theme="t-dark"][data-color="t-green"] {
   --c-primary: #344d26;
-  --c-white-to-black: #ffffff;
-  --c-black-to-white: #000000;
+  --c-white-to-black: #3b3b3b;
+  --c-black-to-white: #edeced;
   --c-gray-to-lightb: #edeced;
   --c-white: #ffffff;
   --c-black: #000000;
