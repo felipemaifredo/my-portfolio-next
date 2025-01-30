@@ -1,7 +1,7 @@
 #contact {
     height: 100vh;
     width: 100vw;
-    background-color: var(--c-primary);
+    background-color: var(--c-white-to-black);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +25,7 @@
 }
 
 #contact .text-box-contact .subtitle {
-    color: var(--c-white);
+    color: var(--c-primary);
     font-size: 6rem;
     font-weight: 600;
     line-height: .90;
@@ -36,7 +36,7 @@
 
 #contact .text-box-contact .social-links-box a {
     height: 50px;
-    color: var(--c-white);
+    color: var(--c-primary);
 }
 
 
@@ -56,7 +56,7 @@
 }
 
 #contact #form-contact h2 {
-    color: var(--c-white);
+    color: var(--c-primary);
     font-size: 2rem;
     position: relative;
 
@@ -79,7 +79,7 @@
 }
 
 #contact #form-contact label p {
-    color: var(--c-white);
+    color: var(--c-primary);
     font-weight: 600;
 }
 
@@ -90,7 +90,8 @@
     border: none;
     padding-left: 10px;
     font-size: 1.3rem;
-    color: var(--c-primary);
+    color: var(--c-white-to-black);
+    background-color: var(--c-primary);
     position: relative;
     
     &:focus {
@@ -110,8 +111,8 @@
     width: fit-content;
     border-radius: 10px;
     border: none;
-    background-color: var(--c-white);
-    color: var(--c-primary);
+    background-color: var(--c-primary);
+    color: var(--c-white-to-black);
     font-size: 1.25rem;
     font-weight: 400;
     cursor: pointer;

@@ -9,6 +9,7 @@ import { useState, useEffect } from "react"
 import { Link } from "@/i18n/routing"
 import { usePathname } from "@/i18n/routing"
 import { PageTransition } from "./PageTransition/PageTransition"
+import { GiTechnoHeart } from "react-icons/gi"
 
 type NavLinkTypes = {
     link: string
@@ -26,6 +27,9 @@ const navLinks: NavLinkTypes[] = [
     }, {
         link: "#about_section",
         icon: <FaRegUser />
+    }, {
+        link: "#skills",
+        icon: <GiTechnoHeart />
     }, {
         link: "#projects",
         icon: <LuLibrary />
