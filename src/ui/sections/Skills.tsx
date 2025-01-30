@@ -50,35 +50,35 @@ const skills: SkillsTypes = [
     }, {
         icon: <IoLogoJavascript />,
         title: "JavaScript",
-        starsRate: 5
+        starsRate: 4
     }, {
         icon: <SiTypescript />,
         title: "TypeScript",
-        starsRate: 5
+        starsRate: 4
     }, {
         icon: <FaNodeJs />,
         title: "Node",
-        starsRate: 5
+        starsRate: 4
     }, {
         icon: <FaReact />,
         title: "ReactJS",
-        starsRate: 5
+        starsRate: 4
     }, {
         icon: <SiNextdotjs />,
         title: "NextJS",
-        starsRate: 5
+        starsRate: 4
     }, {
         icon: <SiElectron />,
         title: "ElectronJS",
-        starsRate: 5
+        starsRate: 3
     }, {
         icon: <FaReact />,
         title: "React Native",
-        starsRate: 5
+        starsRate: 3
     }, {
         icon: <FaGitAlt />,
         title: "Git",
-        starsRate: 5
+        starsRate: 2
     }, {
         icon: <RiTailwindCssFill />,
         title: "Tailwind",
@@ -86,15 +86,15 @@ const skills: SkillsTypes = [
     }, {
         icon: <GrMysql />,
         title: "MySql",
-        starsRate: 5
+        starsRate: 3
     }, {
         icon: <IoLogoFirebase />,
         title: "Firebase",
-        starsRate: 5
+        starsRate: 4
     }, {
         icon: <SiMongodb />,
         title: "MongoDB",
-        starsRate: 4
+        starsRate: 3
     }
 ]
 

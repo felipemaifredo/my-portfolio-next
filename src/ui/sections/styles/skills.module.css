@@ -46,11 +46,13 @@
             justify-content: center;
             flex-direction: column;
             gap: 10px;
+            transition: all .3s;
 
             & > p {
                 color: var(--c-white);
                 font-size: 1.1rem;
                 font-weight: 600;
+                transition: all .3s;
             }
     
             & > svg {
@@ -92,7 +94,6 @@
 
     &>div:hover {
 
-        
         .details {
             flex-direction: row;
             gap: 5px;
