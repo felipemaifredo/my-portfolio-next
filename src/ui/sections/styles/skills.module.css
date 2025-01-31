@@ -110,3 +110,22 @@
         }
     }
 }
+
+@media (max-width: 32rem) {
+    .skills_section {
+    
+        &>h2 {
+            width: 90%;
+            font-size: 3.5rem;
+        }
+    }
+    
+    .skills_container {
+        width: 90%;
+        margin: 0 auto;
+
+        &>div {
+            width: 180px;
+        }
+    }
+}

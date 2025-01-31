@@ -1,5 +1,6 @@
 .about_section {
-    height: 70vh;
+    min-height: 70vh;
+    padding: 70px 0;
     background-color: var(--c-primary);
     display: flex;
     flex-direction: column;
@@ -18,6 +19,7 @@
         font-size: 1.2rem;
         max-width: var(--w-max-width);
         color: var(--c-white-to-black);
-
+        width: 90%;
     }
 }
+

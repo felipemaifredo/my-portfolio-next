@@ -122,3 +122,33 @@
     justify-content: center;
     gap: 5px;
 }
+
+@media (max-width: 32rem) {
+
+    #contact {
+        min-height: 100vh;
+        height: auto;
+        flex-direction: column;
+        gap: 60px;
+        padding: 50px 0;
+    }
+    
+    #contact .text-box-contact {
+        height: 70%;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 60px;
+    }
+        
+    #contact .text-box-contact .subtitle {
+        font-size: 5.5rem;
+        width: 95%;
+    }
+            
+    #contact #form-contact {
+        width: 90%;
+    }
+}
