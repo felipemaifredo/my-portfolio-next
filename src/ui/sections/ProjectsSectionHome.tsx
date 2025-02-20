@@ -59,7 +59,9 @@ export const ProjectsSectionHome = () => {
             </Observer>
             <Observer>
                 <div className={styles.projects_container}>
-                    { renderItems.map((item: cardItem) => <RenderItemLinkProject key={item.title} item= {item} /> ) }
+                    {renderItems.map((item: cardItem) => 
+                        <RenderItemLinkProject key={item.title} item={item} /> 
+                    )}
                 </div>
             </Observer>
         </section>

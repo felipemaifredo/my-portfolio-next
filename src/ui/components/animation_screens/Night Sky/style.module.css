@@ -1,3 +1,48 @@
+
+@media (max-width: 32rem) {
+    .container {
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        box-shadow:
+            0 0 0 0.62em rgba(32, 105, 149, .6),
+            0 0 0 1.25em rgba(32, 105, 149, .5),
+            0 0 0 1.9em rgba(32, 105, 149, .4);
+    }
+    50% {
+        box-shadow:
+            0 0 0 0.62em rgba(32, 105, 149, .7),
+            0 0 0 1.25em rgba(32, 105, 149, .6),
+            0 0 0 1.9em rgba(32, 105, 149, .5);
+    }
+    100% {
+        box-shadow:
+            0 0 0 0.62em rgba(32, 105, 149, .6),
+            0 0 0 1.25em rgba(32, 105, 149, .5),
+            0 0 0 1.9em rgba(32, 105, 149, .4);
+    }
+}
+
+@keyframes craterTwinkle {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .container_pai {
     height: 100%;
     width: 100%;
@@ -70,26 +115,27 @@
         0 0 0 0.62em rgba(32, 105, 149, .6),
         0 0 0 1.25em rgba(32, 105, 149, .5),
         0 0 0 1.9em rgba(32, 105, 149, .4);
+    animation: shimmer 2s infinite ease-in-out;
 }
 
-.moon::before {
+.moon::before, .moon::after {
     content: "";
     position: absolute;
     background-color: var(--cor-5);
+    border-radius: 50%;
+    animation: craterTwinkle 3s infinite ease-in-out;
+}
+
+.moon::before {
     height: .62em;
     width: .62em;
-    border-radius: 50%;
     top: .5em;
     left: .37em;
 }
 
 .moon::after {
-    content: "";
-    position: absolute;
-    background: var(--cor-5);
     height: .43em;
     width: .43em;
-    border-radius: 50%;
     top: 1.25em;
     left: .75em;
 }
@@ -161,12 +207,6 @@
 
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .blades::before {
     position: absolute;
     content: "";
@@ -184,10 +224,4 @@
     background-color: #041524;
     left: 1.62em;
     transform: rotate(90deg);
-}
-
-@media (max-width: 32rem) {
-    .container {
-        transform: scale(1);
-    }
 }

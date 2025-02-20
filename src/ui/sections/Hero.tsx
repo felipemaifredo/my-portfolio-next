@@ -29,7 +29,7 @@ export const Hero = () => {
                 </h1>
             </div>
             <div className={styles.canvas_animation}>
-                {screens[randomNumber()]}
+                { screens[ randomNumber() ] }
             </div>
         </section>
     )

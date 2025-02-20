@@ -75,11 +75,11 @@ export const ProjectsPage = () => {
                             ))}
                         </div>
                         <div className={styles.btn_container}>
-                            <Link href={projectData.link_1 as any} target="_blank">
+                            <a href={projectData.link_2 as any} target="_blank">
                                 <FaRegEye />
-                            </Link>
+                            </a>
                             {projectData.link_2 && (
-                                <Link href={projectData.link_2 as any} target="_blank">
+                                <Link href={projectData.link_1 as any} target="_blank">
                                     <FaCode />
                                 </Link>
                             )}
