@@ -1,16 +1,27 @@
 "use client"
+
+//
 import styles from "./styles/nav.module.css"
+
+//
 import { ReactNode } from "react"
+import { useState, useEffect } from "react"
+
+//
+import { usePathname } from "@/i18n/routing"
+import { Link } from "@/i18n/routing"
+
+//
 import { HiOutlineHome } from "react-icons/hi2"
 import { TiMessage } from "react-icons/ti"
 import { FaRegUser } from "react-icons/fa6"
 import { LuLibrary } from "react-icons/lu"
-import { useState, useEffect } from "react"
-import { Link } from "@/i18n/routing"
-import { usePathname } from "@/i18n/routing"
-import { PageTransition } from "./PageTransition/PageTransition"
 import { GiTechnoHeart } from "react-icons/gi"
 
+//
+import { PageTransition } from "./PageTransition/PageTransition"
+
+//
 type NavLinkTypes = {
     link: string
     icon: ReactNode
@@ -20,6 +31,7 @@ type RenderLinkTypes = {
     navLink: NavLinkTypes
 }
 
+//
 const navLinks: NavLinkTypes[] = [
     {
         link: "#hero_section",
@@ -39,6 +51,7 @@ const navLinks: NavLinkTypes[] = [
     },
 ]
 
+//
 export const Nav = () => {
     const pathname = usePathname()
     const [ isHome, setIsHome ] = useState<boolean>(true)

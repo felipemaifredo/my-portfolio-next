@@ -42,12 +42,6 @@ const projectsData: ProjectTypes[] = [
         link_1: "https://github.com/felipemaifredo/rock-paper-scissor-game-app",
         link_2: "https://rock-paper-scissor-game-felipemaifred.netlify.app/",
         tags: [ "Next", "CSS" ]
-    }, {
-        name: "Aplicativo Gerador de Senhas",
-        description: "Aplicativo simplels usando electron que gera senhas aleatórias",
-        image: PassGene,
-        link_2: "https://drive.google.com/file/d/1j5z7q_Q-9STpan-LCQEDSezh9ILPuLZN/view?usp=sharing",
-        tags: [ "Electron", ]
     },{
         name: "Quadro Kanban",
         description: "Quadro Kanban feito com next.",
