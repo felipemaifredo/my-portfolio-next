@@ -142,4 +142,11 @@
         padding: 5px;
         color: #fff;
     }
+
+    & > .Electron {
+        font-weight: 600;
+        background-color: #2f6c76;
+        padding: 5px;
+        color: #fff;
+    }
 }

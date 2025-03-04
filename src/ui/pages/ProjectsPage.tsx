@@ -1,26 +1,54 @@
+
+//
 import styles from "./styles/workes_page.module.css"
+
+//
 import Image from "next/image"
+
+//
 import { FaRegEye, FaCode } from "react-icons/fa6"
 
+//
 import Pokedex from "@/resources/assets/projects/pokedex.png"
 import PassGene from "@/resources/assets/projects/pass_gene.png"
 import AcoutsNode from "@/resources/assets/projects/accounts-node.png"
 import Kanban from "@/resources/assets/projects/kanban.png"
+import pedraPapelTesouraIMG from "@/resources/assets/projects/Captura de tela 2025-03-03 203458.png"
+import calculadora from "@/resources/assets/projects/calculadora.png"
 
+//
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 
+//
+import { Contact } from "../sections/Contact"
+
+//
 type ProjectTypes = {
     name: string
     description: string
     image: any
-    link_1: string
+    link_1?: string
     link_2?: string
     tags: any[]
 }
 
+//
 const projectsData: ProjectTypes[] = [
     {
+        name: "Jogo Pedra, Papel e Tesoura",
+        description: "",
+        image: pedraPapelTesouraIMG,
+        link_1: "https://github.com/felipemaifredo/rock-paper-scissor-game-app",
+        link_2: "https://rock-paper-scissor-game-felipemaifred.netlify.app/",
+        tags: [ "Next", "CSS" ]
+    }, {
+        name: "Aplicativo Gerador de Senhas",
+        description: "Aplicativo simplels usando electron que gera senhas aleatórias",
+        image: PassGene,
+        link_2: "https://drive.google.com/file/d/1j5z7q_Q-9STpan-LCQEDSezh9ILPuLZN/view?usp=sharing",
+        tags: [ "Electron", ]
+    },{
         name: "Quadro Kanban",
         description: "Quadro Kanban feito com next.",
         image: Kanban,
@@ -42,6 +70,13 @@ const projectsData: ProjectTypes[] = [
         link_2: "https://felipemaifredo.github.io/password_generator/",
         tags: [ "HTML", "CSS", "Javascript" ]
     },{
+        name: "Calculadora",
+        description: "Um dos Meus Primeiros Projetos com Javascript, criando uma calculadora simples.",
+        image: calculadora,
+        link_1: "https://github.com/felipemaifredo/calculadora",
+        link_2: "https://felipemaifredo.github.io/calculadora/",
+        tags: [ "HTML", "CSS", "Javascript" ]
+    },{
         name: "Simulador de Banco",
         description: "Um dos Meus Primeiros Projetos com Nodejs, Projeto Simples de Simulação de Banco.",
         image: AcoutsNode,
@@ -50,10 +85,11 @@ const projectsData: ProjectTypes[] = [
     },
 ]
 
+//
 export const ProjectsPage = () => {
     const t = useTranslations("ProjectsPage")
 
-    return (
+    return (<>
         <div className={styles.workes_page}>
             <h2>{t("title")}</h2>
             <div>
@@ -75,10 +111,12 @@ export const ProjectsPage = () => {
                             ))}
                         </div>
                         <div className={styles.btn_container}>
-                            <a href={projectData.link_2 as any} target="_blank">
-                                <FaRegEye />
-                            </a>
                             {projectData.link_2 && (
+                                <Link href={projectData.link_2 as any} target="_blank">
+                                    <FaRegEye />
+                                </Link>
+                            )}
+                            {projectData.link_1 && (
                                 <Link href={projectData.link_1 as any} target="_blank">
                                     <FaCode />
                                 </Link>
@@ -88,5 +126,6 @@ export const ProjectsPage = () => {
                 ))}
             </div>
         </div>
-    )
+        <Contact />
+    </>)
 }
