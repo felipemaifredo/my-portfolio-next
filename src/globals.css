@@ -1,12 +1,12 @@
 :root {
-  --fs-title: 4.5rem;
+  --fs-title: clamp(2.5rem, 8vw, 4.5rem);
   --w-max-width: 1100px;
 
-  --cor-1 : #113755;
-  --cor-2 : #144569;
-  --cor-3 : #041524;
-  --cor-4 : #ffffff;
-  --cor-5 : #ebefe7;
+  --cor-1: #113755;
+  --cor-2: #144569;
+  --cor-3: #041524;
+  --cor-4: #ffffff;
+  --cor-5: #ebefe7;
 }
 
 /*---- COLORS WHITE -----*/
@@ -27,25 +27,136 @@ body[data-theme="t-light"][data-color="t-rose"] {
   --c-white: #ffffff;
   --c-black: #000000;
 }
-/*---- FIM COLORS WHITE -----*/
-/*---- COLORS BLACK -----*/
-body[data-theme="t-dark"][data-color="t-green"] {
-  --c-primary: #344d26;
-  --c-white-to-black: #3b3b3b;
-  --c-black-to-white: #edeced;
-  --c-gray-to-lightb: #edeced;
-  --c-white: #ffffff;
-  --c-black: #000000;
-}
 
-body[data-theme="t-dark"][data-color="t-rose"] {
-  --c-primary: #b367ac;
+body[data-theme="t-light"][data-color="t-blue"] {
+  --c-primary: #1e90ff;
   --c-white-to-black: #ffffff;
   --c-black-to-white: #000000;
   --c-gray-to-lightb: #edeced;
   --c-white: #ffffff;
   --c-black: #000000;
 }
+
+body[data-theme="t-light"][data-color="t-orange"] {
+  --c-primary: #ff8c00;
+  --c-white-to-black: #ffffff;
+  --c-black-to-white: #000000;
+  --c-gray-to-lightb: #edeced;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-light"][data-color="t-purple"] {
+  --c-primary: #9333ea;
+  --c-white-to-black: #ffffff;
+  --c-black-to-white: #000000;
+  --c-gray-to-lightb: #edeced;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-light"][data-color="t-cyan"] {
+  --c-primary: #0891b2;
+  --c-white-to-black: #ffffff;
+  --c-black-to-white: #000000;
+  --c-gray-to-lightb: #edeced;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-light"][data-color="t-yellow"] {
+  --c-primary: #eab308;
+  --c-white-to-black: #ffffff;
+  --c-black-to-white: #000000;
+  --c-gray-to-lightb: #edeced;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-light"][data-color="t-red"] {
+  --c-primary: #dc2626;
+  --c-white-to-black: #ffffff;
+  --c-black-to-white: #000000;
+  --c-gray-to-lightb: #edeced;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+/*---- FIM COLORS WHITE -----*/
+
+/*---- COLORS BLACK -----*/
+body[data-theme="t-dark"][data-color="t-green"] {
+  --c-primary: #4ade80;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-rose"] {
+  --c-primary: #f472b6;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-blue"] {
+  --c-primary: #60a5fa;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-orange"] {
+  --c-primary: #fb923c;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-purple"] {
+  --c-primary: #a855f7;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-cyan"] {
+  --c-primary: #22d3ee;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-yellow"] {
+  --c-primary: #fde047;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
+body[data-theme="t-dark"][data-color="t-red"] {
+  --c-primary: #f87171;
+  --c-white-to-black: #121212;
+  --c-black-to-white: #f1f5f9;
+  --c-gray-to-lightb: #1e293b;
+  --c-white: #ffffff;
+  --c-black: #000000;
+}
+
 /*---- FIM COLORS BLACK -----*/
 * {
   box-sizing: border-box;

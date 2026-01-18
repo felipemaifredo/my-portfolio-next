@@ -1,6 +1,13 @@
+"use client"
+
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import styles from "./styles/workes_page.module.css"
 import { FaRegEye } from "react-icons/fa6"
 import Image from "next/image"
+import { Link } from "@/i18n/routing"
+import { useTranslations } from "next-intl"
+import { Contact } from "../sections/Contact"
 
 import imgBrusun from "@/resources/assets/works/brusun.png"
 import imgLoboADV from "@/resources/assets/works/loboadv.png"
@@ -13,90 +20,95 @@ import imgUbiOne from "@/resources/assets/works/ubione.png"
 import eboEcommerce from "@/resources/assets/works/ebo-ecomerce.png"
 import lancamentos from "@/resources/assets/works/lancamentos.png"
 import pontoverde from "@/resources/assets/works/ponto-verde.png"
-
-import { Link } from "@/i18n/routing"
-import { useTranslations } from "next-intl"
+import imgAdmissao from "@/resources/assets/works/zoboli-admissao-com-estrategia.png"
+import imgZoboliEco from "@/resources/assets/works/zoboli-ecossistema.png"
+import imgBuzatoEco from "@/resources/assets/works/buzato-ecossistema.png"
 
 type WorksType = {
-    name: string
-    description: string
+    id: string
     image: any
     link: string
-    tags: any[]
+    tags: string[]
 }
 
 const worksData: WorksType[] = [
     {
-        name: "E-commerce E-Bordados",
-        description: "Front-end híbrido de e-commerce completo feito em next com uso eficiente de cache.",
+        id: "w14",
+        image: imgBuzatoEco,
+        link: "",
+        tags: ["Next", "Node", "Express", "Firebase"]
+    },
+    {
+        id: "w13",
+        image: imgZoboliEco,
+        link: "",
+        tags: ["Next", "Bun", "Elysia", "Firebase"]
+    },
+    {
+        id: "w12",
+        image: imgAdmissao,
+        link: "",
+        tags: ["Next", "CSS"]
+    }, {
+        id: "w1",
         image: eboEcommerce,
         link: "https://next.e-bordados.net/",
-        tags: [ "Next", "CSS" ]
-    },{
-        name: "E-Bordados Lançamentos",
-        description: "Sistema de lançamento de cursos, com captação de leads, controle de aulas.",
+        tags: ["Next", "CSS"]
+    }, {
+        id: "w2",
         image: lancamentos,
         link: "",
         tags: ["Next", "Node", "CSS", "Firebase"]
-    },{
-        name: "UbiOne",
-        description: "Site institucional para apresentar um chatbot inteligente e suas funcionalidades.",
+    }, {
+        id: "w3",
         image: imgUbiOne,
         link: "",
         tags: ["HTML", "CSS", "Javascript"]
     },
     {
-        name: "Innc",
-        description: "Site institucional para promover a saúde mental.",
+        id: "w4",
         image: imgInnc,
         link: "",
         tags: ["React", "CSS", "Firebase"]
     },
     {
-        name: "Ponto Verde",
-        description: "Website institucional para divulgar soluções em energia solar.",
+        id: "w5",
         image: pontoverde,
         link: "",
         tags: ["HTML", "CSS",]
     },
     {
-        name: "Premold",
-        description: "Site institucional para promover soluções em peças pré-moldadas.",
+        id: "w6",
         image: imgPremold,
         link: "",
         tags: ["React", "CSS", "Firebase"]
     },
     {
-        name: "João Henrrique Advogado",
-        description: "Website institucional destacando serviços jurídicos personalizados.",
+        id: "w7",
         image: imgJHB,
         link: "",
         tags: ["React", "CSS", "Firebase"]
     },
     {
-        name: "V&C",
-        description: "Website institucional destacando serviços de educação.",
+        id: "w8",
         image: imgVeC,
         link: "",
         tags: ["React", "CSS"]
     },
     {
-        name: "Total Seg",
-        description: "Catálogo online para exibição de equipamentos e serviços de segurança.",
+        id: "w9",
         image: imgTotalSeg,
         link: "",
         tags: ["React", "CSS", "Firebase"]
     },
     {
-        name: "Lobo Advocacia",
-        description: "Site institucional para destacar os serviços de advocacia da empresa.",
+        id: "w10",
         image: imgLoboADV,
         link: "",
         tags: ["HTML", "CSS", "Javascript"]
     },
     {
-        name: "Brusun Energia Solar",
-        description: "Website institucional para divulgar soluções em energia solar.",
+        id: "w11",
         image: imgBrusun,
         link: "",
         tags: ["HTML", "CSS", "Javascript"]
@@ -105,36 +117,99 @@ const worksData: WorksType[] = [
 
 export const WorksPage = () => {
     const t = useTranslations("WorksPage")
-    
+    const [filter, setFilter] = useState("All")
+
+    const allTags = ["All", ...Array.from(new Set(worksData.flatMap(w => w.tags)))]
+
+    const filteredWorks = filter === "All"
+        ? worksData
+        : worksData.filter(w => w.tags.includes(filter))
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.1 }
+        }
+    }
+
+    const itemVariants = {
+        hidden: { scale: 0.8, opacity: 0 },
+        visible: { scale: 1, opacity: 1 },
+        exit: { scale: 0.8, opacity: 0 }
+    }
+
     return (
-        <div className={styles.workes_page}>
-            <h2>{t("title")}</h2>
-            <div>
-                {worksData.map((workData: WorksType) => (
-                    <div key={workData.name}>
-                        <Image
-                            src={workData.image}
-                            width={300}
-                            height={200}
-                            alt="Imagem de projeto"
-                        />
-                        <div>
-                            <p className={styles.title}>{workData.name}</p>
-                            <p>{workData.description}</p>
-                        </div>
-                        <div className={styles.tags_container}>
-                            {workData.tags.map((tag: any) => (
-                                <p className={styles[tag]} key={tag}>{tag}</p>
-                            ))}
-                        </div>
-                        <div className={styles.btn_container}>
-                            <Link href={workData.link as any} target="_blank">
-                                <FaRegEye />
-                            </Link>
-                        </div>
-                    </div>
-                ))}
+        <>
+            <div className={styles.workes_page}>
+                <motion.h2
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                >
+                    {t("title")}
+                </motion.h2>
+
+                <div className={styles.filter_container}>
+                    {allTags.map(tag => (
+                        <button
+                            key={tag}
+                            className={`${styles.filter_btn} ${filter === tag ? styles.active : ""}`}
+                            onClick={() => setFilter(tag)}
+                        >
+                            {tag === "All" ? t("filterAll") : tag}
+                        </button>
+                    ))}
+                </div>
+
+                <motion.div
+                    className={styles.projects_grid}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <AnimatePresence mode="popLayout">
+                        {filteredWorks.map((work) => (
+                            <motion.div
+                                className={styles.project_card}
+                                key={work.id}
+                                variants={itemVariants}
+                                layout
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                whileHover={{ y: -10 }}
+                            >
+                                <div className={styles.image_wrapper}>
+                                    <Image
+                                        src={work.image}
+                                        width={400}
+                                        height={250}
+                                        alt={t(`items.${work.id}_name`)}
+                                        className={styles.project_img}
+                                    />
+                                </div>
+                                <div className={styles.info_container}>
+                                    <p className={styles.title}>{t(`items.${work.id}_name`)}</p>
+                                    <p className={styles.description}>{t(`items.${work.id}_desc`)}</p>
+                                    <div className={styles.tags_row}>
+                                        {work.tags.map(tag => (
+                                            <span className={`${styles.tag} ${styles[tag]}`} key={tag}>{tag}</span>
+                                        ))}
+                                    </div>
+                                    <div className={styles.btn_container}>
+                                        {work.link && (
+                                            <Link href={work.link as any} target="_blank" className={styles.action_btn}>
+                                                <FaRegEye /> {t("btnView")}
+                                            </Link>
+                                        )}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+                </motion.div>
             </div>
-        </div>
+            <Contact />
+        </>
     )
 }

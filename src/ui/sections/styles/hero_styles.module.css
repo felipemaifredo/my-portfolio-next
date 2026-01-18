@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--c-white-to-black);
 }
 
 .data_container {
@@ -12,11 +13,12 @@
     height: 100%;
     display: grid;
     place-items: center;
+    padding: 2rem;
 }
 
 .canvas_animation {
     height: 100%;
-    width: 50%;   
+    width: 50%;
 }
 
 .title {
@@ -26,59 +28,48 @@
     justify-content: center;
     color: var(--c-primary);
     width: auto;
-    height: 350px;
+    height: auto;
+    min-height: 350px;
+    padding: 1rem;
 
-    & > .p_1 {
-        font-size: 25rem;
-        margin-bottom: -90px;
+    &>.p_1 {
+        font-size: clamp(8rem, 25vw, 25rem);
+        margin-bottom: -5vw;
     }
 
-    & > .p_2 {
-        font-size: 6.5rem;
+    &>.p_2 {
+        font-size: clamp(2.5rem, 8vw, 6.5rem);
+        text-align: center;
+        line-height: 1.1;
     }
 
-    & > .p_3 {
-        font-size: 3rem;
+    &>.p_3 {
+        font-size: clamp(1.2rem, 4vw, 3.5rem);
+        margin-top: 1rem;
     }
 }
 
-@media (max-width: 32rem) {
+@media (max-width: 64rem) {
     .hero_section {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        height: auto;
+        min-height: 100vh;
     }
 
     .canvas_animation {
-        height: 50%;
-        width: 100%;   
+        height: 50vh;
+        width: 100%;
     }
 
     .data_container {
         width: 100%;
-        height: 50%;
-        display: grid;
-        place-items: center;
+        height: auto;
+        min-height: 50vh;
+        padding: 4rem 1rem;
     }
 
     .title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: var(--c-primary);
-        width: 100%;
-        height: 350px;
-    
-        & > .p_1 {
-            font-size: 13rem;
-            margin-bottom: -40px;
-        }
-    
-        & > .p_2 {
-            font-size: 3.5rem;
-        }
-    
-        & > .p_3 {
-            font-size: 1.7rem;
-        }
+        height: auto;
+        min-height: auto;
     }
 }

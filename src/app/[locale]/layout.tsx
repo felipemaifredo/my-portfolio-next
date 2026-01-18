@@ -5,15 +5,17 @@ import { NextIntlClientProvider } from "next-intl"
 import { setRequestLocale } from "next-intl/server"
 import { getMessages } from "next-intl/server"
 
-import {routing} from "../../i18n/routing"
+import { routing } from "../../i18n/routing"
 
 import { Nav } from "@/ui/components/Nav"
+import { ThemeSwitcher } from "@/ui/components/ThemeSwitcher/ThemeSwitcher"
+
+import { cookies } from "next/headers"
 
 type LayoutTypes = {
   children: ReactNode
   params: Promise<{ locale: string }>
 }
-
 
 export const metadata: Metadata = {
   title: "Felipe Maifredo Portfolio",
@@ -21,19 +23,28 @@ export const metadata: Metadata = {
 }
 
 export function generateStaticParams() {
-  return routing.locales.map((locale) => ({locale}))
+  return routing.locales.map((locale) => ({ locale }))
 }
 
 export default async function LocaleLayout({ children, params }: LayoutTypes) {
+  const cookieStore = await cookies()
+  const theme = cookieStore.get("theme")?.value || "t-light"
+
+  const colors: ("t-green" | "t-rose" | "t-blue" | "t-orange" | "t-purple" | "t-cyan" | "t-yellow" | "t-red")[] = [
+    "t-green", "t-rose", "t-blue", "t-orange", "t-purple", "t-cyan", "t-yellow", "t-red"
+  ]
+  const randomColor = colors[Math.floor(Math.random() * colors.length)]
+
   setRequestLocale((await params).locale)
   const messages = await getMessages()
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <html>
-        <body data-theme="t-light" data-color="t-green">
+      <html lang={(await params).locale}>
+        <body data-theme={theme} data-color={randomColor}>
           <Nav />
           {children}
+          <ThemeSwitcher />
         </body>
       </html>
     </NextIntlClientProvider>

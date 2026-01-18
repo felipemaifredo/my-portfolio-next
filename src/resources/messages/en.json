@@ -11,10 +11,117 @@
         "skills_4": "Beginner",
         "skills_5": "Basic"
     },
+    "Hero": {
+        "greeting": "Hi",
+        "iam": "I'm Felipe",
+        "role": "FullStack Developer"
+    },
+    "Nav": {
+        "hero_section": "Home",
+        "about_section": "About",
+        "skills": "Skills",
+        "projects": "Cases",
+        "contact": "Contact"
+    },
+    "ProjectsSectionHome": {
+        "title": "My Projects and Works",
+        "projectsTitle": "Projects",
+        "projectsDesc": "Tools created to train and improve myself.",
+        "worksTitle": "Works",
+        "worksDesc": "My real work projects.",
+        "libraryTitle": "Library",
+        "libraryDesc": "Ready-made components."
+    },
+    "Skills": {
+        "title": "Technologies",
+        "frontend": "Frontend",
+        "backend": "Backend & Database",
+        "others": "Tools & Extras"
+    },
+    "Contact": {
+        "title": "Contact me",
+        "subtitle": "Let's <brk></brk> work together!",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your full name",
+        "contactLabel": "WhatsApp or E-mail",
+        "contactPlaceholder": "To let me reply to you",
+        "subjectLabel": "Subject",
+        "subjectPlaceholder": "How can I help?",
+        "sending": "Sending...",
+        "send": "Send",
+        "success": "Sent Successfully!",
+        "errorEmpty": "Please fill in all fields.",
+        "errorGeneric": "An error occurred while sending. Please try again later."
+    },
+    "ThemeSwitcher": {
+        "ariaLabel": "Theme Settings",
+        "themeLabel": "Theme",
+        "modeDark": "Dark Mode",
+        "modeLight": "Light Mode",
+        "colorLabel": "Main Color",
+        "green": "Green",
+        "rose": "Rose",
+        "blue": "Blue",
+        "orange": "Orange",
+        "purple": "Purple",
+        "cyan": "Cyan",
+        "yellow": "Yellow",
+        "red": "Red"
+    },
     "ProjectsPage": {
-        "title": "My Projects"
+        "title": "My Projects",
+        "filterAll": "All",
+        "btnDemo": "Demo",
+        "btnCode": "Code",
+        "items": {
+            "p1_name": "Rock, Paper, Scissors Game",
+            "p1_desc": "Classic interactive game developed with NextJS.",
+            "p2_name": "Kanban Board",
+            "p2_desc": "Functional Kanban board for task management.",
+            "p3_name": "Pokedex",
+            "p3_desc": "Data exploration of Pokémon consuming an external API.",
+            "p4_name": "Password Generator",
+            "p4_desc": "Utility for generating secure passwords.",
+            "p5_name": "Calculator",
+            "p5_desc": "Web calculator with basic functionalities.",
+            "p6_name": "Bank Simulator",
+            "p6_desc": "Backend application simulating banking operations."
+        }
     },
     "WorksPage": {
-        "title": "My Works"
+        "title": "My Works",
+        "filterAll": "All",
+        "btnView": "View",
+        "altImage": "Project image",
+        "items": {
+            "w1_name": "E-Bordados E-commerce",
+            "w1_desc": "Hybrid e-commerce front-end built in Next.js with efficient cache usage.",
+            "w2_name": "E-Bordados Launches",
+            "w2_desc": "Course launch system with lead capture and class control.",
+            "w3_name": "UbiOne",
+            "w3_desc": "Institutional site to present an intelligent chatbot and its features.",
+            "w4_name": "Innc",
+            "w4_desc": "Institutional site to promote mental health.",
+            "w5_name": "Ponto Verde",
+            "w5_desc": "Institutional website to promote solar energy solutions.",
+            "w6_name": "Premold",
+            "w6_desc": "Institutional site to promote solutions in pre-molded parts.",
+            "w7_name": "João Henrrique Lawyer",
+            "w7_desc": "Institutional website highlighting personalized legal services.",
+            "w8_name": "V&C",
+            "w8_desc": "Institutional website highlighting education services.",
+            "w9_name": "Total Seg",
+            "w9_desc": "Online catalog for displaying security equipment and services.",
+            "w10_name": "Lobo Law Firm",
+            "w10_desc": "Institutional site to highlight the firm's legal services.",
+            "w11_name": "Brusun Solar Energy",
+            "w11_desc": "Institutional website to promote solar energy solutions.",
+            "w12_name": "Admission with Strategy Landing Page",
+            "w12_desc": "High-conversion landing page built with Next.js.",
+            "w13_name": "Zoboli Law Ecosystem",
+            "w13_desc": "Full ecosystem: LP with Blog, Client Portal, and Admin Panel. Bun/Elysia backend, Firebase, and Minio.",
+            "w14_name": "Buzato Ecosystem",
+            "w14_desc": "Full ecosystem: High-performance LP, Client Portal, and Admin Panel. Backend Node/Express, Firebase and Minio."
+        }
     }
 }

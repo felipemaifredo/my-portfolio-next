@@ -11,10 +11,117 @@
         "skills_4": "Iniciante",
         "skills_5": "Básico"
     },
+    "Hero": {
+        "greeting": "Olá",
+        "iam": "Sou o Felipe",
+        "role": "Desenvolvedor FullStack"
+    },
+    "Nav": {
+        "hero_section": "Início",
+        "about_section": "Sobre",
+        "skills": "Habilidades",
+        "projects": "Casos",
+        "contact": "Contato"
+    },
+    "ProjectsSectionHome": {
+        "title": "Meus Projetos e Trabalhos",
+        "projectsTitle": "Projetos",
+        "projectsDesc": "Ferramentas criadas para treinar e me aprimorar.",
+        "worksTitle": "Trabalhos",
+        "worksDesc": "Meus trabalhos reais.",
+        "libraryTitle": "Biblioteca",
+        "libraryDesc": "Componentes prontos."
+    },
+    "Skills": {
+        "title": "Tecnologias",
+        "frontend": "Frontend",
+        "backend": "Backend & Database",
+        "others": "Ferramentas & Extras"
+    },
+    "Contact": {
+        "title": "Entre em contato",
+        "subtitle": "Vamos <brk></brk> trabalhar juntos!",
+        "nameLabel": "Nome",
+        "namePlaceholder": "Seu nome completo",
+        "contactLabel": "WhatsApp ou E-mail",
+        "contactPlaceholder": "Para eu te responder",
+        "subjectLabel": "Assunto",
+        "subjectPlaceholder": "Como posso ajudar?",
+        "sending": "Enviando...",
+        "send": "Enviar",
+        "success": "Enviado com Sucesso!",
+        "errorEmpty": "Por favor, preencha todos os campos.",
+        "errorGeneric": "Ocorreu um erro ao enviar. Tente novamente mais tarde."
+    },
+    "ThemeSwitcher": {
+        "ariaLabel": "Configurações de tema",
+        "themeLabel": "Tema",
+        "modeDark": "Modo Escuro",
+        "modeLight": "Modo Claro",
+        "colorLabel": "Cor Principal",
+        "green": "Verde",
+        "rose": "Rosa",
+        "blue": "Azul",
+        "orange": "Laranja",
+        "purple": "Roxo",
+        "cyan": "Ciano",
+        "yellow": "Amarelo",
+        "red": "Vermelho"
+    },
     "ProjectsPage": {
-        "title": "Meus Projetos"
+        "title": "Meus Projetos",
+        "filterAll": "Todos",
+        "btnDemo": "Demo",
+        "btnCode": "Código",
+        "items": {
+            "p1_name": "Jogo Pedra, Papel e Tesoura",
+            "p1_desc": "Jogo interativo clássico desenvolvido com NextJS.",
+            "p2_name": "Quadro Kanban",
+            "p2_desc": "Quadro Kanban funcional para gerenciamento de tarefas.",
+            "p3_name": "Pokedex",
+            "p3_desc": "Exploração de dados de Pokémon consumindo API externa.",
+            "p4_name": "Gerador de Senhas",
+            "p4_desc": "Utilitário para geração de senhas seguras.",
+            "p5_name": "Calculadora",
+            "p5_desc": "Calculadora web com funcionalidades básicas.",
+            "p6_name": "Simulador de Banco",
+            "p6_desc": "Aplicação backend simulando operações bancárias."
+        }
     },
     "WorksPage": {
-        "title": "Meus Trabalhos"
+        "title": "Meus Trabalhos",
+        "filterAll": "Todos",
+        "btnView": "Visualizar",
+        "altImage": "Imagem de projeto",
+        "items": {
+            "w1_name": "E-commerce E-Bordados",
+            "w1_desc": "Front-end híbrido de e-commerce completo feito em next com uso eficiente de cache.",
+            "w2_name": "E-Bordados Lançamentos",
+            "w2_desc": "Sistema de lançamento de cursos, com captação de leads, controle de aulas.",
+            "w3_name": "UbiOne",
+            "w3_desc": "Site institucional para apresentar um chatbot inteligente e suas funcionalidades.",
+            "w4_name": "Innc",
+            "w4_desc": "Site institucional para promover a saúde mental.",
+            "w5_name": "Ponto Verde",
+            "w5_desc": "Website institucional para divulgar soluções em energia solar.",
+            "w6_name": "Premold",
+            "w6_desc": "Site institucional para promover soluções em peças pré-moldadas.",
+            "w7_name": "João Henrrique Advogado",
+            "w7_desc": "Website institucional destacando serviços jurídicos personalizados.",
+            "w8_name": "V&C",
+            "w8_desc": "Website institucional destacando serviços de educação.",
+            "w9_name": "Total Seg",
+            "w9_desc": "Catálogo online para exibição de equipamentos e serviços de segurança.",
+            "w10_name": "Lobo Advocacia",
+            "w10_desc": "Site institucional para destacar os serviços de advocacia da empresa.",
+            "w11_name": "Brusun Energia Solar",
+            "w11_desc": "Website institucional para divulgar soluções em energia solar.",
+            "w12_name": "Landing Page Admissão com Estratégia",
+            "w12_desc": "Landing page de alta conversão construída com Next.js.",
+            "w13_name": "Ecossistema Zoboli Advocacia",
+            "w13_desc": "Ecossistema completo: LP com Blog, Portal do Cliente e Painel Admin. Backend Bun/Elysia, Firebase e Minio.",
+            "w14_name": "Ecossistema Buzato",
+            "w14_desc": "Ecossistema completo: LP de alta performance, Portal do Cliente e Painel Admin. Backend Node/Express, Firebase e Minio."
+        }
     }
 }
