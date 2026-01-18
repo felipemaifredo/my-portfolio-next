@@ -14,7 +14,7 @@
     max-width: var(--w-max-width);
     color: var(--c-white);
     font-size: var(--fs-title);
-    text-align: center;
+    text-align: left;
 }
 
 .projects_container {
