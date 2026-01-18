@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { LuSun, LuMoon, LuPalette } from "react-icons/lu"
-import { useTranslations } from "next-intl"
+import { LuSun, LuMoon, LuPalette, LuSettings2 } from "react-icons/lu"
+import { useTranslations, useLocale } from "next-intl"
+import { useRouter, usePathname } from "@/i18n/routing"
 import Cookies from "js-cookie"
 import styles from "./theme_switcher.module.css"
 
@@ -15,6 +16,9 @@ export const ThemeSwitcher = () => {
     const [theme, setTheme] = useState<ThemeTypes>("t-light")
     const [color, setColor] = useState<ColorTypes>("t-green")
     const [isOpen, setIsOpen] = useState(false)
+    const locale = useLocale()
+    const router = useRouter()
+    const pathname = usePathname()
 
     useEffect(() => {
         const currentTheme = document.body.getAttribute("data-theme") as ThemeTypes
@@ -34,6 +38,10 @@ export const ThemeSwitcher = () => {
     const changeColor = (newColor: ColorTypes) => {
         setColor(newColor)
         document.body.setAttribute("data-color", newColor)
+    }
+
+    const changeLanguage = (newLocale: "pt" | "en") => {
+        router.replace(pathname, { locale: newLocale })
     }
 
     const colorOptions: { id: ColorTypes; label: string; hex: string }[] = [
@@ -56,7 +64,7 @@ export const ThemeSwitcher = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={t("ariaLabel")}
             >
-                <LuPalette />
+                <LuSettings2 />
             </motion.button>
 
             <AnimatePresence>
@@ -87,6 +95,24 @@ export const ThemeSwitcher = () => {
                                         title={opt.label}
                                     />
                                 ))}
+                            </div>
+                        </div>
+
+                        <div className={styles.option_group}>
+                            <p className={styles.label}>{t("languageLabel")}</p>
+                            <div className={styles.lang_options}>
+                                <button
+                                    className={`${styles.lang_btn} ${locale === "pt" ? styles.active_lang : ""}`}
+                                    onClick={() => changeLanguage("pt")}
+                                >
+                                    {t("pt")}
+                                </button>
+                                <button
+                                    className={`${styles.lang_btn} ${locale === "en" ? styles.active_lang : ""}`}
+                                    onClick={() => changeLanguage("en")}
+                                >
+                                    {t("en")}
+                                </button>
                             </div>
                         </div>
                     </motion.div>

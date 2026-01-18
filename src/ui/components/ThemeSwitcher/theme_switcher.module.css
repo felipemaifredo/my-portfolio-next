@@ -139,6 +139,36 @@
     background-color: #dc2626;
 }
 
+.lang_options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.lang_btn {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    background-color: var(--c-gray-to-lightb);
+    color: var(--c-black-to-white);
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.lang_btn:hover {
+    background-color: var(--c-primary);
+    color: white;
+}
+
+.lang_btn.active_lang {
+    background-color: var(--c-primary);
+    color: white;
+    border-color: var(--c-primary);
+}
+
 @media (max-width: 48rem) {
     .container {
         bottom: 85px;
