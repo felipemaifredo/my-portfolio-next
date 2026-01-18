@@ -1,0 +1,43 @@
+.preloader_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--c-white-to-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.logo_wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.text_contain {
+    display: flex;
+    gap: 0.3rem;
+    overflow: hidden;
+}
+
+.logo_text {
+    font-size: clamp(4rem, 15vw, 7rem);
+    font-weight: 900;
+    color: var(--c-primary);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.underline {
+    margin-top: 0.5rem;
+    width: 100%;
+    height: clamp(4px, 1vw, 8px);
+    background-color: var(--c-primary);
+    border-radius: 4px;
+    transform-origin: left;
+}

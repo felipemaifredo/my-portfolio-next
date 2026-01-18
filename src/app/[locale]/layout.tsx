@@ -9,6 +9,7 @@ import { routing } from "../../i18n/routing"
 
 import { Nav } from "@/ui/components/Nav"
 import { ThemeSwitcher } from "@/ui/components/ThemeSwitcher/ThemeSwitcher"
+import { Preloader } from "@/ui/components/Preloader"
 
 import { cookies } from "next/headers"
 
@@ -42,6 +43,7 @@ export default async function LocaleLayout({ children, params }: LayoutTypes) {
     <NextIntlClientProvider messages={messages}>
       <html lang={(await params).locale}>
         <body data-theme={theme} data-color={randomColor}>
+          <Preloader />
           <Nav />
           {children}
           <ThemeSwitcher />
