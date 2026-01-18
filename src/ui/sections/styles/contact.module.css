@@ -115,7 +115,7 @@
 @media (max-width: 968px) {
     .contact_wrapper {
         flex-direction: column;
-        padding: 60px 1.5rem;
+        padding: 60px 1.5rem 150px;
         gap: 3rem;
     }
 }
