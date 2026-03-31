@@ -4,7 +4,7 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import styles from "./styles/workes_page.module.css"
 import Image from "next/image"
-import { FaRegEye, FaCode } from "react-icons/fa6"
+import { FaRegEye, FaCode, FaDownload } from "react-icons/fa6"
 import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 import { Contact } from "../sections/Contact"
@@ -16,12 +16,14 @@ import AcoutsNode from "@/resources/assets/projects/accounts-node.png"
 import Kanban from "@/resources/assets/projects/kanban.png"
 import pedraPapelTesouraIMG from "@/resources/assets/projects/Captura de tela 2025-03-03 203458.png"
 import calculadora from "@/resources/assets/projects/calculadora.png"
+import HTTPClientApp from "@/resources/assets/projects/logo.png"
 
 type ProjectTypes = {
     id: string
     image: any
     link_1?: string
     link_2?: string
+    link_download?: string
     tags: string[]
 }
 
@@ -61,7 +63,13 @@ const projectsData: ProjectTypes[] = [
         image: AcoutsNode,
         link_1: "https://github.com/felipemaifredo/accounts_node",
         tags: ["Node",]
-    },
+    }, {
+        id: "p7",
+        image: HTTPClientApp,
+        link_1: "https://github.com/felipemaifredo/HTTP-Client-electron-app",
+        link_download: "https://drive.google.com/drive/folders/1HrldtgBnyXS_lOwDbq2DCqlL2EsfOqBz?usp=sharing",
+        tags: ["Electron", "React", "Node"]
+    }
 ]
 
 export const ProjectsPage = () => {
@@ -149,6 +157,11 @@ export const ProjectsPage = () => {
                                         {project.link_2 && (
                                             <Link href={project.link_2 as any} target="_blank" className={styles.action_btn}>
                                                 <FaRegEye /> {t("btnDemo")}
+                                            </Link>
+                                        )}
+                                        {project.link_download && (
+                                            <Link href={project.link_download as any} target="_blank" className={styles.action_btn}>
+                                                <FaDownload /> {t("btnDownload")}
                                             </Link>
                                         )}
                                         {project.link_1 && (

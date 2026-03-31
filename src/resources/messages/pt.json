@@ -76,6 +76,7 @@
         "filterAll": "Todos",
         "btnDemo": "Demo",
         "btnCode": "Código",
+        "btnDownload": "Download",
         "items": {
             "p1_name": "Jogo Pedra, Papel e Tesoura",
             "p1_desc": "Jogo interativo clássico desenvolvido com NextJS.",
@@ -88,7 +89,9 @@
             "p5_name": "Calculadora",
             "p5_desc": "Calculadora web com funcionalidades básicas.",
             "p6_name": "Simulador de Banco",
-            "p6_desc": "Aplicação backend simulando operações bancárias."
+            "p6_desc": "Aplicação backend simulando operações bancárias.",
+            "p7_name": "Cliente HTTP",
+            "p7_desc": "Cliente HTTP desenvolvido como uma aplicação desktop com Electron."
         }
     },
     "WorksPage": {

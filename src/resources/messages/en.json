@@ -76,6 +76,7 @@
         "filterAll": "All",
         "btnDemo": "Demo",
         "btnCode": "Code",
+        "btnDownload": "Download",
         "items": {
             "p1_name": "Rock, Paper, Scissors Game",
             "p1_desc": "Classic interactive game developed with NextJS.",
@@ -88,7 +89,9 @@
             "p5_name": "Calculator",
             "p5_desc": "Web calculator with basic functionalities.",
             "p6_name": "Bank Simulator",
-            "p6_desc": "Backend application simulating banking operations."
+            "p6_desc": "Backend application simulating banking operations.",
+            "p7_name": "HTTP Client",
+            "p7_desc": "HTTP Client developed as a desktop application with Electron."
         }
     },
     "WorksPage": {
