@@ -4,24 +4,23 @@
         "paragraph_1": "In 2020, I took my first steps into the exciting world of programming, and since then, this journey has been filled with incredible learning experiences and achievements. Today, I am a graduate in Systems Analysis and Development, which has allowed me to deepen my knowledge and enhance my technical skills along the way.",
         "paragraph_2": "My true fascination lies in JavaScript development, which has become my passion and focus area. Over time, I have explored its numerous possibilities, from web applications to mobile and desktop solutions. With each project I engage in, I feel the excitement and motivation to create something innovative and functional.",
         "paragraph_3": "In this portfolio, I share some of my most exciting projects, where I was able to apply my knowledge and creativity. Each line of code represents my effort and dedication to delivering efficient and elegant solutions.",
-        "paragraph_4": "I hope this space serves as an entry point for you to learn more about me, my work, and my passion for programming. Feel free to explore my projects and reach out. I am always open to new opportunities and exciting partnerships!",
-        "skills_1": "Expert",
-        "skills_2": "Advanced",
-        "skills_3": "Intermediate",
-        "skills_4": "Beginner",
-        "skills_5": "Basic"
+        "paragraph_4": "I hope this space serves as an entry point for you to learn more about me, my work, and my passion for programming. Feel free to explore my projects and reach out. I am always open to new opportunities and exciting partnerships!"
     },
     "Hero": {
         "greeting": "Hi",
         "iam": "I'm Felipe",
-        "role": "FullStack Developer"
+        "role": "FullStack Developer",
+        "ctaWorks": "See my work",
+        "ctaContact": "Get in touch",
+        "scrollHint": "Scroll to the About section"
     },
     "Nav": {
         "hero_section": "Home",
         "about_section": "About",
         "skills": "Skills",
         "projects": "Cases",
-        "contact": "Contact"
+        "contact": "Contact",
+        "navLabel": "Main navigation"
     },
     "ProjectsSectionHome": {
         "title": "My Projects and Works",
@@ -45,13 +44,14 @@
         "namePlaceholder": "Your full name",
         "contactLabel": "WhatsApp or E-mail",
         "contactPlaceholder": "To let me reply to you",
-        "subjectLabel": "Subject",
+        "subjectLabel": "Message",
         "subjectPlaceholder": "How can I help?",
         "sending": "Sending...",
         "send": "Send",
         "success": "Sent Successfully!",
         "errorEmpty": "Please fill in all fields.",
-        "errorGeneric": "An error occurred while sending. Please try again later."
+        "errorGeneric": "An error occurred while sending. Please try again later.",
+        "errorField": "Required field"
     },
     "ThemeSwitcher": {
         "ariaLabel": "Theme Settings",
@@ -69,7 +69,8 @@
         "red": "Red",
         "languageLabel": "Language",
         "pt": "Portuguese",
-        "en": "English"
+        "en": "English",
+        "close": "Close settings"
     },
     "ProjectsPage": {
         "title": "My Projects",
@@ -92,7 +93,9 @@
             "p6_desc": "Backend application simulating banking operations.",
             "p7_name": "HTTP Client",
             "p7_desc": "HTTP Client developed as a desktop application with Electron."
-        }
+        },
+        "filterLabel": "Filter by technology",
+        "opensNewTab": "(opens in a new tab)"
     },
     "WorksPage": {
         "title": "My Works",
@@ -128,6 +131,15 @@
             "w13_desc": "Full ecosystem: LP with Blog, Client Portal, and Admin Panel. Bun/Elysia backend, Firebase, and Minio.",
             "w14_name": "Buzato Ecosystem",
             "w14_desc": "Full ecosystem: High-performance LP, Client Portal, and Admin Panel. Backend Node/Express, Firebase and Minio."
-        }
+        },
+        "filterLabel": "Filter by technology",
+        "privateLink": "Private client project",
+        "opensNewTab": "(opens in a new tab)"
+    },
+    "Metadata": {
+        "title": "Felipe Maifredo · FullStack Developer",
+        "description": "Portfolio of Felipe Maifredo, a FullStack developer focused on JavaScript, React, Next.js and Node. Browse projects, real client work and get in touch.",
+        "worksTitle": "Works",
+        "projectsTitle": "Projects"
     }
 }

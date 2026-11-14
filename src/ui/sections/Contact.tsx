@@ -1,82 +1,74 @@
 "use client"
 
-import { useState } from "react"
+import { useActionState, useEffect, useId, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { VscGithub } from "react-icons/vsc"
 import { AiOutlineLinkedin } from "react-icons/ai"
 import { GoPaperAirplane } from "react-icons/go"
 import { LuBadgeCheck } from "react-icons/lu"
 import { useTranslations } from "next-intl"
+import { sendContact, type ContactField, type ContactState } from "@/actions/contact"
 import styles from "./styles/contact.module.css"
 
-const linkToFetch = "https://formsubmit.co/felipemaifredo@gmail.com"
+const initialState: ContactState = {
+  status: "idle",
+  fields: { name: "", whatsOrEmail: "", subject: "" },
+}
 
-const defaultForm = {
-  name: "",
-  whatsOrEmail: "",
-  subject: "",
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+}
+
+const itemVariants = {
+  hidden: { x: -20, opacity: 0 },
+  visible: { x: 0, opacity: 1 }
 }
 
 export const Contact = () => {
   const t = useTranslations("Contact")
-  const [formData, setFormData] = useState(defaultForm)
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
-  const [message, setMessage] = useState("")
+  const uid = useId()
+  const formRef = useRef<HTMLFormElement>(null)
+  const [state, formAction, isPending] = useActionState(sendContact, initialState)
 
-  async function sendEmail(e: React.FormEvent) {
-    e.preventDefault()
+  // Campos editados depois do último envio: some o erro deles e a mensagem de sucesso
+  const [edited, setEdited] = useState<Set<ContactField>>(new Set())
 
-    if (!formData.name || !formData.whatsOrEmail || !formData.subject) {
-      setMessage(t("errorEmpty"))
-      setStatus("error")
-      setTimeout(() => setStatus("idle"), 5000)
-      return
-    }
+  useEffect(() => {
+    setEdited(new Set())
+    // Leva o foco ao primeiro campo inválido devolvido pelo servidor
+    const firstInvalid = state.invalid?.[0]
+    if (firstInvalid) formRef.current?.querySelector<HTMLElement>(`[name="${firstInvalid}"]`)?.focus()
+  }, [state])
 
-    setStatus("sending")
-
-    try {
-      const response = await fetch(linkToFetch, {
-        method: "POST",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          _captcha: "false",
-          _subject: "Novo Contato no Site!",
-          Nome: formData.name,
-          EmailWhatsapp: formData.whatsOrEmail,
-          Assunto: formData.subject
-        })
-      })
-
-      if (response.ok) {
-        setStatus("success")
-        setFormData(defaultForm)
-        setTimeout(() => setStatus("idle"), 8000)
-      } else {
-        throw new Error("Falha ao enviar")
-      }
-    } catch (error) {
-      setStatus("error")
-      setMessage(t("errorGeneric"))
-      setTimeout(() => setStatus("idle"), 5000)
-    }
+  const markEdited = (field: ContactField) => {
+    if (!edited.has(field)) setEdited((prev) => new Set(prev).add(field))
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  }
+  const isInvalid = (field: ContactField) => !!state.invalid?.includes(field) && !edited.has(field)
+  const showSuccess = state.status === "success" && edited.size === 0
+  const showError = state.status === "error" && !isPending && edited.size === 0
 
-  const itemVariants = {
-    hidden: { x: -20, opacity: 0 },
-    visible: { x: 0, opacity: 1 }
-  }
+  const fieldProps = (field: ContactField) => ({
+    id: `${uid}-${field}`,
+    name: field,
+    // Em caso de erro o servidor devolve o que foi digitado; o React restaura após o reset do formulário
+    defaultValue: state.fields[field],
+    onChange: () => markEdited(field),
+    "aria-invalid": isInvalid(field) || undefined,
+    "aria-describedby": isInvalid(field) ? `${uid}-${field}-error` : undefined,
+    className: `${styles.input_field} ${isInvalid(field) ? styles.input_invalid : ""}`,
+  })
+
+  const fieldError = (field: ContactField) =>
+    isInvalid(field) && (
+      <span id={`${uid}-${field}-error`} className={styles.field_error}>
+        {t("errorField")}
+      </span>
+    )
 
   return (
     <section id="contact" className={styles.contact_section}>
@@ -94,93 +86,105 @@ export const Contact = () => {
             })}
           </motion.p>
           <motion.div className={styles.social_links} variants={itemVariants}>
-            <a href="https://github.com/felipemaifredo" target="_blank" rel="noopener noreferrer">
-              <VscGithub />
+            <a href="https://github.com/felipemaifredo" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <VscGithub aria-hidden />
             </a>
-            <a href="https://www.linkedin.com/in/felipe-maifredo-aa8228198/" target="_blank" rel="noopener noreferrer">
-              <AiOutlineLinkedin />
+            <a href="https://www.linkedin.com/in/felipe-maifredo-aa8228198/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <AiOutlineLinkedin aria-hidden />
             </a>
           </motion.div>
         </motion.div>
 
         <motion.form
+          ref={formRef}
           id="form-contact"
           className={styles.form_container}
-          onSubmit={sendEmail}
+          action={formAction}
+          noValidate
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <h2>{t("title")}</h2>
 
+          {/* Honeypot anti-spam: invisível para pessoas, fora da ordem do Tab */}
+          <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden className={styles.honeypot} />
+
           <div className={styles.input_group}>
-            <p>{t("nameLabel")}</p>
+            <label htmlFor={`${uid}-name`}>{t("nameLabel")}</label>
             <input
-              className={styles.input_field}
+              {...fieldProps("name")}
               type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              autoComplete="name"
+              required
               placeholder={t("namePlaceholder")}
             />
+            {fieldError("name")}
           </div>
 
           <div className={styles.input_group}>
-            <p>{t("contactLabel")}</p>
+            <label htmlFor={`${uid}-whatsOrEmail`}>{t("contactLabel")}</label>
             <input
-              className={styles.input_field}
+              {...fieldProps("whatsOrEmail")}
               type="text"
-              value={formData.whatsOrEmail}
-              onChange={(e) => setFormData({ ...formData, whatsOrEmail: e.target.value })}
+              autoComplete="email"
+              autoCapitalize="off"
+              spellCheck={false}
+              required
               placeholder={t("contactPlaceholder")}
             />
+            {fieldError("whatsOrEmail")}
           </div>
 
           <div className={styles.input_group}>
-            <p>{t("subjectLabel")}</p>
-            <input
-              className={styles.input_field}
-              type="text"
-              value={formData.subject}
-              onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+            <label htmlFor={`${uid}-subject`}>{t("subjectLabel")}</label>
+            <textarea
+              {...fieldProps("subject")}
+              rows={4}
+              required
               placeholder={t("subjectPlaceholder")}
             />
+            {fieldError("subject")}
           </div>
 
-          <AnimatePresence mode="wait">
-            {status === "success" ? (
-              <motion.div
-                key="success"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className={styles.submit_btn}
-                style={{ backgroundColor: "#599636" }}
-              >
-                <LuBadgeCheck /> {t("success")}
-              </motion.div>
-            ) : (
-              <motion.button
-                key="btn"
-                type="submit"
-                className={styles.submit_btn}
-                disabled={status === "sending"}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {status === "sending" ? t("sending") : t("send")}
-                {status === "idle" && <GoPaperAirplane />}
-              </motion.button>
-            )}
-          </AnimatePresence>
+          <div aria-live="polite" className={styles.submit_area}>
+            <AnimatePresence mode="wait" initial={false}>
+              {showSuccess ? (
+                <motion.p
+                  key="success"
+                  role="status"
+                  initial={{ scale: 0.96, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className={`${styles.submit_btn} ${styles.submit_success}`}
+                >
+                  <LuBadgeCheck aria-hidden /> {t("success")}
+                </motion.p>
+              ) : (
+                <motion.button
+                  key="btn"
+                  type="submit"
+                  className={styles.submit_btn}
+                  disabled={isPending}
+                  aria-busy={isPending}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {isPending ? t("sending") : t("send")}
+                  {!isPending && <GoPaperAirplane aria-hidden />}
+                </motion.button>
+              )}
+            </AnimatePresence>
 
-          {status === "error" && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              style={{ color: "#ff4444", fontWeight: "600", textAlign: "center" }}
-            >
-              {message}
-            </motion.p>
-          )}
+            {showError && (
+              <motion.p
+                role="alert"
+                className={styles.form_error}
+                initial={{ opacity: 0, y: -4 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {state.error === "empty" ? t("errorEmpty") : t("errorGeneric")}
+              </motion.p>
+            )}
+          </div>
         </motion.form>
       </div>
     </section>

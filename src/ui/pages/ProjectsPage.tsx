@@ -1,13 +1,10 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import styles from "./styles/workes_page.module.css"
-import Image from "next/image"
 import { FaRegEye, FaCode, FaDownload } from "react-icons/fa6"
-import { Link } from "@/i18n/routing"
+import type { StaticImageData } from "next/image"
 import { useTranslations } from "next-intl"
 import { Contact } from "../sections/Contact"
+import { ShowcaseGrid, type ShowcaseItem } from "../components/ShowcaseGrid"
 
 // Assets
 import Pokedex from "@/resources/assets/projects/pokedex.png"
@@ -20,7 +17,7 @@ import HTTPClientApp from "@/resources/assets/projects/logo.png"
 
 type ProjectTypes = {
     id: string
-    image: any
+    image: StaticImageData
     link_1?: string
     link_2?: string
     link_download?: string
@@ -74,108 +71,29 @@ const projectsData: ProjectTypes[] = [
 
 export const ProjectsPage = () => {
     const t = useTranslations("ProjectsPage")
-    const [filter, setFilter] = useState("All")
 
-    const allTags = ["All", ...Array.from(new Set(projectsData.flatMap(p => p.tags)))]
-
-    const filteredProjects = filter === "All"
-        ? projectsData
-        : projectsData.filter(p => p.tags.includes(filter))
-
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 }
-        }
-    }
-
-    const itemVariants = {
-        hidden: { scale: 0.8, opacity: 0 },
-        visible: { scale: 1, opacity: 1 },
-        exit: { scale: 0.8, opacity: 0 }
-    }
+    const items: ShowcaseItem[] = projectsData.map((project) => ({
+        id: project.id,
+        image: project.image,
+        name: t(`items.${project.id}_name`),
+        description: t(`items.${project.id}_desc`),
+        tags: project.tags,
+        actions: [
+            project.link_2 && { href: project.link_2, label: t("btnDemo"), icon: <FaRegEye /> },
+            project.link_download && { href: project.link_download, label: t("btnDownload"), icon: <FaDownload /> },
+            project.link_1 && { href: project.link_1, label: t("btnCode"), icon: <FaCode /> },
+        ].filter(Boolean) as ShowcaseItem["actions"],
+    }))
 
     return (
         <>
-            <div className={styles.workes_page}>
-                <motion.h2
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                >
-                    {t("title")}
-                </motion.h2>
-
-                <div className={styles.filter_container}>
-                    {allTags.map(tag => (
-                        <button
-                            key={tag}
-                            className={`${styles.filter_btn} ${filter === tag ? styles.active : ""}`}
-                            onClick={() => setFilter(tag)}
-                        >
-                            {tag === "All" ? t("filterAll") : tag}
-                        </button>
-                    ))}
-                </div>
-
-                <motion.div
-                    className={styles.projects_grid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
-                    <AnimatePresence mode="popLayout">
-                        {filteredProjects.map((project) => (
-                            <motion.div
-                                className={styles.project_card}
-                                key={project.id}
-                                variants={itemVariants}
-                                layout
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                whileHover={{ y: -10 }}
-                            >
-                                <div className={styles.image_wrapper}>
-                                    <Image
-                                        src={project.image}
-                                        width={400}
-                                        height={250}
-                                        alt={t(`items.${project.id}_name`)}
-                                        className={styles.project_img}
-                                    />
-                                </div>
-                                <div className={styles.info_container}>
-                                    <p className={styles.title}>{t(`items.${project.id}_name`)}</p>
-                                    <p className={styles.description}>{t(`items.${project.id}_desc`)}</p>
-                                    <div className={styles.tags_row}>
-                                        {project.tags.map(tag => (
-                                            <span className={`${styles.tag} ${styles[tag]}`} key={tag}>{tag}</span>
-                                        ))}
-                                    </div>
-                                    <div className={styles.btn_container}>
-                                        {project.link_2 && (
-                                            <Link href={project.link_2 as any} target="_blank" className={styles.action_btn}>
-                                                <FaRegEye /> {t("btnDemo")}
-                                            </Link>
-                                        )}
-                                        {project.link_download && (
-                                            <Link href={project.link_download as any} target="_blank" className={styles.action_btn}>
-                                                <FaDownload /> {t("btnDownload")}
-                                            </Link>
-                                        )}
-                                        {project.link_1 && (
-                                            <Link href={project.link_1 as any} target="_blank" className={styles.action_btn}>
-                                                <FaCode /> {t("btnCode")}
-                                            </Link>
-                                        )}
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </AnimatePresence>
-                </motion.div>
-            </div>
+            <ShowcaseGrid
+                title={t("title")}
+                items={items}
+                filterAllLabel={t("filterAll")}
+                filterLabel={t("filterLabel")}
+                opensNewTabLabel={t("opensNewTab")}
+            />
             <Contact />
         </>
     )

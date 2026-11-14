@@ -19,15 +19,15 @@
 
 .about_section h2 {
     font-size: var(--fs-title);
-    color: var(--c-white);
+    color: var(--c-on-primary);
     margin: 0;
 }
 
 .about_section p {
     font-size: clamp(1rem, 3.5vw, 1.25rem);
     line-height: 1.6;
-    color: var(--c-white);
-    opacity: 0.9;
+    color: var(--c-on-primary);
+    opacity: 0.95;
     margin: 0;
 }
 

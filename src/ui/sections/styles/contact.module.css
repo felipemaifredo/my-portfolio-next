@@ -33,13 +33,16 @@
 }
 
 .social_links a {
+    display: flex;
     font-size: clamp(2rem, 5vw, 2.5rem);
     color: var(--c-primary);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease-out;
 }
 
-.social_links a:hover {
-    transform: translateY(-5px);
+@media (hover: hover) {
+    .social_links a:hover {
+        transform: translateY(-4px);
+    }
 }
 
 .form_container {
@@ -64,10 +67,10 @@
     gap: 0.5rem;
 }
 
-.input_group p {
+.input_group label {
     font-weight: 600;
     color: var(--c-black-to-white);
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .input_field {
@@ -77,8 +80,62 @@
     border: 2px solid transparent;
     background-color: var(--c-white-to-black);
     color: var(--c-black-to-white);
+    font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
+}
+
+textarea.input_field {
+    resize: vertical;
+    min-height: 7.5rem;
+    line-height: 1.5;
+}
+
+.input_field::placeholder {
+    color: var(--c-black-to-white);
+    opacity: 0.45;
+}
+
+.input_invalid {
+    border-color: #dc2626;
+}
+
+.field_error {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #dc2626;
+}
+
+body[data-theme="t-dark"] .input_invalid {
+    border-color: #f87171;
+}
+
+body[data-theme="t-dark"] .field_error,
+body[data-theme="t-dark"] .form_error {
+    color: #f87171;
+}
+
+@media (prefers-color-scheme: dark) {
+    body:not([data-theme]) .input_invalid {
+        border-color: #f87171;
+    }
+
+    body:not([data-theme]) .field_error,
+    body:not([data-theme]) .form_error {
+        color: #f87171;
+    }
+}
+
+.submit_area {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form_error {
+    color: #dc2626;
+    font-weight: 600;
+    text-align: center;
 }
 
 .input_field:focus {
@@ -91,8 +148,9 @@
     padding: 1.2rem;
     border-radius: 1rem;
     background-color: var(--c-primary);
-    color: white;
+    color: var(--c-on-primary);
     border: none;
+    font-family: inherit;
     font-size: 1.2rem;
     font-weight: 700;
     cursor: pointer;
@@ -103,8 +161,14 @@
     transition: background-color 0.3s ease;
 }
 
-.submit_btn:hover {
-    filter: brightness(1.1);
+@media (hover: hover) {
+    .submit_btn:hover:not(:disabled) {
+        filter: brightness(1.1);
+    }
+}
+
+.submit_success {
+    cursor: default;
 }
 
 .submit_btn:disabled {
@@ -118,4 +182,13 @@
         padding: 60px 1.5rem 150px;
         gap: 3rem;
     }
+}
+/* Campo isca para robôs de spam — fora da tela, sem ocupar espaço */
+.honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
 }

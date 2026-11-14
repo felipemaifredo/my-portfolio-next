@@ -4,17 +4,21 @@
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 50px;
+    padding: 1.25rem 0.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.list {
+    list-style: none;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    gap: 0.75rem;
 }
 
 .nav_item {
@@ -22,53 +26,77 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
 }
 
 .link {
-    height: 45px;
-    width: 45px;
+    height: 48px;
+    width: 48px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    color: #fff;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .icon_box {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 2;
+    transition: transform 0.16s ease-out;
+}
+
+.link:active .icon_box {
+    transform: scale(0.9);
+}
+
+@media (hover: hover) {
+    .link:hover {
+        color: #fff;
+    }
+
+    .link:hover .icon_box {
+        transform: scale(1.1);
+    }
+}
+
+/* No desktop o rótulo é só para leitores de tela; o tooltip mostra o nome */
+.label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
 }
 
 .active {
-    color: var(--c-primary) !important;
+    color: var(--p-dark, #4ade80) !important;
 }
 
 .active_indicator {
     position: absolute;
-    bottom: -6px;
+    bottom: 2px;
     left: 50%;
     margin-left: -3px;
-    /* Precise half of width instead of transform for stability */
     width: 6px;
     height: 6px;
-    background-color: var(--c-primary);
+    background-color: var(--p-dark, #4ade80);
     border-radius: 50%;
-    z-index: 1;
-    box-shadow: 0 0 8px var(--c-primary);
+    box-shadow: 0 0 8px var(--p-dark, #4ade80);
 }
 
 /* Tooltip */
 .tooltip {
     position: absolute;
-    left: 70px;
+    left: 64px;
     background-color: var(--c-primary);
-    color: white;
+    color: var(--c-on-primary);
     padding: 0.5rem 1rem;
     border-radius: 0.8rem;
     font-size: 0.85rem;
@@ -76,8 +104,9 @@
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    transform: translateX(-6px);
+    transition: opacity 0.15s ease-out, transform 0.15s ease-out, visibility 0.15s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -92,7 +121,8 @@
     border-color: transparent var(--c-primary) transparent transparent;
 }
 
-.nav_item:hover .tooltip {
+.nav_item:hover .tooltip,
+.nav_item:focus-within .tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
@@ -101,29 +131,57 @@
 @media (max-width: 48rem) {
     .nav {
         top: auto;
-        bottom: 2rem;
+        bottom: max(1rem, env(safe-area-inset-bottom));
         left: 50%;
         transform: translateX(-50%);
         height: 70px;
-        width: 90%;
+        width: calc(100% - 2rem);
         max-width: 450px;
-        flex-direction: row;
-        gap: 0.5rem;
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         border-radius: 20px;
     }
 
+    .list {
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100%;
+        gap: 0;
+    }
+
+    .nav_item {
+        flex: 1;
+        height: 100%;
+    }
+
     .link {
-        height: 50px;
-        width: 50px;
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+        gap: 0.2rem;
+    }
+
+    .icon_box {
+        font-size: 1.3rem;
+    }
+
+    /* No celular o rótulo aparece embaixo do ícone */
+    .label {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
     }
 
     .tooltip {
         display: none;
-        /* Hide tooltips on touch devices to avoid clutter */
     }
 
     .active_indicator {
-        bottom: -4px;
+        top: 4px;
+        bottom: auto;
     }
 }

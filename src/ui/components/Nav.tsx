@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { usePathname } from "@/i18n/routing"
 import { Link } from "@/i18n/routing"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 import styles from "./styles/nav.module.css"
 
@@ -18,7 +18,7 @@ import { PageTransition } from "./PageTransition/PageTransition"
 type NavLinkTypes = {
     id: string
     link: string
-    icon: any
+    icon: React.ReactNode
 }
 
 const navLinks: NavLinkTypes[] = [
@@ -38,92 +38,85 @@ export const Nav = () => {
     useEffect(() => {
         if (!isHome) return
 
-        const observers = navLinks.map(link => {
+        // A seção ativa é a que cruza a faixa central da tela — funciona
+        // mesmo para seções mais altas que a viewport.
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) setActiveSection(entry.target.id)
+                })
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+        )
+
+        navLinks.forEach((link) => {
             const element = document.querySelector(link.link)
-            if (!element) return null
-
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(link.id)
-                    }
-                },
-                { threshold: 0.5 }
-            )
-
-            observer.observe(element)
-            return observer
+            if (element) observer.observe(element)
         })
 
-        return () => {
-            observers.forEach(obs => obs?.disconnect())
-        }
+        return () => observer.disconnect()
     }, [isHome])
 
     const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
-        e.preventDefault()
         const targetSection = document.querySelector(link)
+        if (!targetSection) return
 
-        if (targetSection) {
-            const toSection = targetSection.getBoundingClientRect().top + window.scrollY
-            window.scroll({
-                top: toSection,
-                behavior: "smooth",
-            })
-        }
+        e.preventDefault()
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        targetSection.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" })
+        history.replaceState(null, "", link)
     }
 
     return (
-        <nav className={styles.nav}>
-            {navLinks.map((navLink) => {
-                const isActive = activeSection === navLink.id && isHome
+        <nav className={styles.nav} aria-label={t("navLabel")}>
+            <ul className={styles.list}>
+                {navLinks.map((navLink) => {
+                    const isActive = activeSection === navLink.id && isHome
+                    const content = (
+                        <>
+                            <span className={styles.icon_box} aria-hidden>
+                                {navLink.icon}
+                            </span>
+                            <span className={styles.label}>{t(navLink.id)}</span>
+                            {isActive && (
+                                <motion.span
+                                    layoutId="nav-active-indicator"
+                                    className={styles.active_indicator}
+                                    transition={{ type: "spring", stiffness: 500, damping: 40 }}
+                                    aria-hidden
+                                />
+                            )}
+                        </>
+                    )
 
-                return (
-                    <div key={navLink.id} className={styles.nav_item}>
-                        {isHome ? (
-                            <a
-                                href={navLink.link}
-                                onClick={(e) => handleLinkClick(e, navLink.link)}
-                                className={`${styles.link} ${isActive ? styles.active : ""}`}
-                            >
-                                <motion.div
-                                    whileHover={{ scale: 1.2 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className={styles.icon_box}
+                    return (
+                        <li key={navLink.id} className={styles.nav_item}>
+                            {isHome ? (
+                                <a
+                                    href={navLink.link}
+                                    onClick={(e) => handleLinkClick(e, navLink.link)}
+                                    className={`${styles.link} ${isActive ? styles.active : ""}`}
+                                    aria-current={isActive ? "location" : undefined}
                                 >
-                                    {navLink.icon}
-                                </motion.div>
-
-                                {isActive && (
-                                    <motion.div
-                                        className={styles.active_indicator}
-                                        initial={{ scale: 0 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                                    />
-                                )}
-                            </a>
-                        ) : (
-                            <Link
-                                href={`/${navLink.link}` as any}
-                                onClick={() => PageTransition()}
-                                className={styles.link}
-                            >
-                                <motion.div
-                                    whileHover={{ scale: 1.2 }}
-                                    className={styles.icon_box}
+                                    {content}
+                                </a>
+                            ) : (
+                                <Link
+                                    href={`/${navLink.link}` as any}
+                                    onClick={() => PageTransition()}
+                                    className={styles.link}
                                 >
-                                    {navLink.icon}
-                                </motion.div>
-                            </Link>
-                        )}
+                                    {content}
+                                </Link>
+                            )}
 
-                        <div className={styles.tooltip}>
-                            {t(navLink.id)}
-                        </div>
-                    </div>
-                )
-            })}
+                            <span className={styles.tooltip} aria-hidden>
+                                {t(navLink.id)}
+                            </span>
+                        </li>
+                    )
+                })}
+            </ul>
         </nav>
     )
 }

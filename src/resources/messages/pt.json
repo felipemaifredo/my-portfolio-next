@@ -4,24 +4,23 @@
         "paragraph_1": "Em 2020, dei os primeiros passos no emocionante mundo da programação e, desde então, essa jornada tem sido repleta de aprendizados e conquistas incríveis. Hoje, sou formado em Análise e Desenvolvimento de Sistemas, o que me permitiu aprofundar meus conhecimentos e aprimorar minhas habilidades técnicas ao longo do caminho.",
         "paragraph_2": "Meu verdadeiro fascínio está no desenvolvimento em Javascript, que se tornou minha paixão e área de foco. Ao longo do tempo, explorei suas inúmeras possibilidades, desde aplicações web até soluções para dispositivos móveis e desktop. A cada projeto que me envolvo, sinto a empolgação e a motivação de criar algo inovador e funcional.",
         "paragraph_3": "Neste portfolio, compartilho alguns dos meus projetos mais empolgantes, nos quais pude aplicar meus conhecimentos e criatividade. Cada linha de código representa meu empenho e dedicação para entregar soluções eficientes e elegantes.",
-        "paragraph_4": "Espero que este espaço seja uma porta de entrada para que você conheça mais sobre mim, meu trabalho e minha paixão pela programação. Sinta-se à vontade para explorar meus projetos e entrar em contato. Estou sempre aberto a novas oportunidades e parcerias emocionantes!",
-        "skills_1": "Especialista",
-        "skills_2": "Avançado",
-        "skills_3": "Intermediário",
-        "skills_4": "Iniciante",
-        "skills_5": "Básico"
+        "paragraph_4": "Espero que este espaço seja uma porta de entrada para que você conheça mais sobre mim, meu trabalho e minha paixão pela programação. Sinta-se à vontade para explorar meus projetos e entrar em contato. Estou sempre aberto a novas oportunidades e parcerias emocionantes!"
     },
     "Hero": {
         "greeting": "Olá",
         "iam": "Sou o Felipe",
-        "role": "Desenvolvedor FullStack"
+        "role": "Desenvolvedor FullStack",
+        "ctaWorks": "Ver trabalhos",
+        "ctaContact": "Fale comigo",
+        "scrollHint": "Rolar para a seção Sobre"
     },
     "Nav": {
         "hero_section": "Início",
         "about_section": "Sobre",
         "skills": "Habilidades",
         "projects": "Casos",
-        "contact": "Contato"
+        "contact": "Contato",
+        "navLabel": "Navegação principal"
     },
     "ProjectsSectionHome": {
         "title": "Meus Projetos e Trabalhos",
@@ -45,13 +44,14 @@
         "namePlaceholder": "Seu nome completo",
         "contactLabel": "WhatsApp ou E-mail",
         "contactPlaceholder": "Para eu te responder",
-        "subjectLabel": "Assunto",
+        "subjectLabel": "Mensagem",
         "subjectPlaceholder": "Como posso ajudar?",
         "sending": "Enviando...",
         "send": "Enviar",
         "success": "Enviado com Sucesso!",
         "errorEmpty": "Por favor, preencha todos os campos.",
-        "errorGeneric": "Ocorreu um erro ao enviar. Tente novamente mais tarde."
+        "errorGeneric": "Ocorreu um erro ao enviar. Tente novamente mais tarde.",
+        "errorField": "Campo obrigatório"
     },
     "ThemeSwitcher": {
         "ariaLabel": "Configurações de tema",
@@ -69,7 +69,8 @@
         "red": "Vermelho",
         "languageLabel": "Idioma",
         "pt": "Português",
-        "en": "Inglês"
+        "en": "Inglês",
+        "close": "Fechar configurações"
     },
     "ProjectsPage": {
         "title": "Meus Projetos",
@@ -92,7 +93,9 @@
             "p6_desc": "Aplicação backend simulando operações bancárias.",
             "p7_name": "Cliente HTTP",
             "p7_desc": "Cliente HTTP desenvolvido como uma aplicação desktop com Electron."
-        }
+        },
+        "filterLabel": "Filtrar por tecnologia",
+        "opensNewTab": "(abre em nova aba)"
     },
     "WorksPage": {
         "title": "Meus Trabalhos",
@@ -128,6 +131,15 @@
             "w13_desc": "Ecossistema completo: LP com Blog, Portal do Cliente e Painel Admin. Backend Bun/Elysia, Firebase e Minio.",
             "w14_name": "Ecossistema Buzato",
             "w14_desc": "Ecossistema completo: LP de alta performance, Portal do Cliente e Painel Admin. Backend Node/Express, Firebase e Minio."
-        }
+        },
+        "filterLabel": "Filtrar por tecnologia",
+        "privateLink": "Projeto privado do cliente",
+        "opensNewTab": "(abre em nova aba)"
+    },
+    "Metadata": {
+        "title": "Felipe Maifredo · Desenvolvedor FullStack",
+        "description": "Portfólio de Felipe Maifredo, desenvolvedor FullStack especializado em JavaScript, React, Next.js e Node. Veja projetos, trabalhos reais e entre em contato.",
+        "worksTitle": "Trabalhos",
+        "projectsTitle": "Projetos"
     }
 }

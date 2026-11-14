@@ -9,8 +9,8 @@ import { Link } from "@/i18n/routing"
 import { useTranslations } from "next-intl"
 import { PageTransition } from "@/ui/components/PageTransition/PageTransition"
 
-type cardItem = {
-    icon: any
+type CardItem = {
+    icon: React.ReactNode
     title: string
     descrip: string
     link: string
@@ -20,7 +20,7 @@ const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        transition: { staggerChildren: 0.2 }
+        transition: { staggerChildren: 0.12 }
     }
 }
 
@@ -32,7 +32,7 @@ const itemVariants = {
 export const ProjectsSectionHome = () => {
     const t = useTranslations("ProjectsSectionHome")
 
-    const renderItems = [
+    const renderItems: CardItem[] = [
         {
             icon: <LuCode />,
             title: t("projectsTitle"),
@@ -61,29 +61,31 @@ export const ProjectsSectionHome = () => {
                 {t("title")}
             </motion.h2>
 
-            <motion.div
+            <motion.ul
                 className={styles.projects_container}
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
             >
-                {renderItems.map((item: cardItem) => (
-                    <motion.div
-                        className={styles.card_item_project}
-                        key={item.title}
-                        variants={itemVariants}
-                        whileHover={{ y: -10, scale: 1.02 }}
-                    >
-                        {item.icon}
-                        <p className={styles.title}>{item.title}</p>
-                        <p>{item.descrip}</p>
-                        <Link href={`/${item.link}` as any} onClick={() => PageTransition()}>
-                            <IoArrowForwardCircleOutline />
+                {renderItems.map((item) => (
+                    <motion.li key={item.link} className={styles.card_wrapper} variants={itemVariants}>
+                        {/* O cartão inteiro é o link */}
+                        <Link
+                            href={`/${item.link}` as any}
+                            onClick={() => PageTransition()}
+                            className={styles.card_item_project}
+                        >
+                            <span className={styles.card_icon} aria-hidden>{item.icon}</span>
+                            <span className={styles.title}>{item.title}</span>
+                            <span className={styles.description}>{item.descrip}</span>
+                            <span className={styles.arrow} aria-hidden>
+                                <IoArrowForwardCircleOutline />
+                            </span>
                         </Link>
-                    </motion.div>
+                    </motion.li>
                 ))}
-            </motion.div>
+            </motion.ul>
         </section>
     )
 }
