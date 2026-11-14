@@ -7,19 +7,16 @@ import { Contact } from "../sections/Contact"
 import { ShowcaseGrid, type ShowcaseItem } from "../components/ShowcaseGrid"
 
 import imgBrusun from "@/resources/assets/works/brusun.png"
-import imgLoboADV from "@/resources/assets/works/loboadv.png"
-import imgTotalSeg from "@/resources/assets/works/totalseg.png"
 import imgVeC from "@/resources/assets/works/vec.png"
-import imgJHB from "@/resources/assets/works/jhn.png"
-import imgPremold from "@/resources/assets/works/premold.png"
-import imgInnc from "@/resources/assets/works/innc.png"
-import imgUbiOne from "@/resources/assets/works/ubione.png"
 import eboEcommerce from "@/resources/assets/works/ebordados-ecommerce.png"
+import eboDownloads from "@/resources/assets/works/ebordados-downloads.png"
+import eboMinhaConta from "@/resources/assets/works/ebordados-minhaconta.png"
 import lancamentos from "@/resources/assets/works/lancamentos.png"
-import pontoverde from "@/resources/assets/works/ponto-verde.png"
 import imgAdmissao from "@/resources/assets/works/zoboli-admissao-com-estrategia.png"
 import imgZoboliEco from "@/resources/assets/works/zoboli-ecossistema.png"
 import imgBuzatoEco from "@/resources/assets/works/buzato-ecossistema.png"
+import imgScarpini from "@/resources/assets/works/gruposcarpini-institucional.png"
+// import imgStarAdmin from "@/resources/assets/works/star-admin.png" // oculto até trocar a imagem (expõe dados de clientes)
 
 type WorksType = {
     id: string
@@ -29,16 +26,28 @@ type WorksType = {
 }
 
 const worksData: WorksType[] = [
+    // {
+    //     id: "w18",
+    //     image: imgStarAdmin,
+    //     link: "",
+    //     tags: ["Next", "CSS"]
+    // },
+    {
+        id: "w17",
+        image: imgScarpini,
+        link: "https://gruposcarpini.com.br",
+        tags: ["Next", "CSS"]
+    },
     {
         id: "w14",
         image: imgBuzatoEco,
-        link: "",
+        link: "https://distribuidorabuzato.com.br",
         tags: ["Next", "Node", "Express", "Firebase"]
     },
     {
         id: "w13",
         image: imgZoboliEco,
-        link: "",
+        link: "https://robertazoboli.com",
         tags: ["Next", "Bun", "Elysia", "Firebase"]
     },
     {
@@ -52,57 +61,25 @@ const worksData: WorksType[] = [
         link: "https://next.e-bordados.net/",
         tags: ["Next", "CSS"]
     }, {
+        id: "w15",
+        image: eboDownloads,
+        link: "",
+        tags: ["Next", "CSS"]
+    }, {
+        id: "w16",
+        image: eboMinhaConta,
+        link: "",
+        tags: ["Next", "CSS"]
+    }, {
         id: "w2",
         image: lancamentos,
         link: "",
         tags: ["Next", "Node", "CSS", "Firebase"]
     }, {
-        id: "w3",
-        image: imgUbiOne,
-        link: "",
-        tags: ["HTML", "CSS", "Javascript"]
-    },
-    {
-        id: "w4",
-        image: imgInnc,
-        link: "",
-        tags: ["React", "CSS", "Firebase"]
-    },
-    {
-        id: "w5",
-        image: pontoverde,
-        link: "",
-        tags: ["HTML", "CSS",]
-    },
-    {
-        id: "w6",
-        image: imgPremold,
-        link: "",
-        tags: ["React", "CSS", "Firebase"]
-    },
-    {
-        id: "w7",
-        image: imgJHB,
-        link: "",
-        tags: ["React", "CSS", "Firebase"]
-    },
-    {
         id: "w8",
         image: imgVeC,
         link: "",
         tags: ["React", "CSS"]
-    },
-    {
-        id: "w9",
-        image: imgTotalSeg,
-        link: "",
-        tags: ["React", "CSS", "Firebase"]
-    },
-    {
-        id: "w10",
-        image: imgLoboADV,
-        link: "",
-        tags: ["HTML", "CSS", "Javascript"]
     },
     {
         id: "w11",
