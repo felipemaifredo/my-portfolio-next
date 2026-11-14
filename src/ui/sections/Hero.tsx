@@ -8,10 +8,13 @@ import { Link } from "@/i18n/routing"
 import styles from "./styles/hero_styles.module.css"
 
 import { MatrixRain } from "../components/animation_screens/MatrixRain"
-import { ScreenMouseAnimation } from "../components/animation_screens/mouse animation color/ScreenMouseAnimation"
+import { DotField } from "../components/animation_screens/DotField"
+import { StackGraph } from "../components/animation_screens/StackGraph"
+import { CodeTyping } from "../components/animation_screens/CodeTyping"
+import { Contours } from "../components/animation_screens/Contours"
 import { PageTransition } from "../components/PageTransition/PageTransition"
 
-const screens = [<MatrixRain key="matrix" />, <ScreenMouseAnimation key="mouse" />]
+const screens = [<MatrixRain key="matrix" />, <DotField key="dots" />, <StackGraph key="graph" />, <CodeTyping key="code" />, <Contours key="contours" />]
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },

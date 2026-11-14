@@ -92,7 +92,15 @@
             "p6_name": "Simulador de Banco",
             "p6_desc": "Aplicação backend simulando operações bancárias.",
             "p7_name": "Cliente HTTP",
-            "p7_desc": "Cliente HTTP desenvolvido como uma aplicação desktop com Electron."
+            "p7_desc": "Cliente HTTP desenvolvido como uma aplicação desktop com Electron.",
+            "p8_name": "Mai Paint",
+            "p8_desc": "App desktop de quadro branco para rascunhos e diagramas à mão livre: simples, leve e bonito, feito com Electron.",
+            "p9_name": "Mai Screen Ruler",
+            "p9_desc": "Régua de tela flutuante para medir distâncias em pixels em qualquer lugar do sistema. Simples, leve e bonita, feita com Electron.",
+            "p10_name": "Mai Color Picker",
+            "p10_desc": "Conta-gotas que captura qualquer cor da tela e mostra os valores em RGB e HEX. Simples, leve e bonito, feito com Electron.",
+            "p11_name": "CineScope",
+            "p11_desc": "Acompanhador de séries para desktop: descubra e pesquise séries, salve na sua watchlist e acompanhe o calendário de lançamentos dos próximos episódios."
         },
         "filterLabel": "Filtrar por tecnologia",
         "opensNewTab": "(abre em nova aba)"

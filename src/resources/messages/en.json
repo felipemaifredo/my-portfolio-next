@@ -92,7 +92,15 @@
             "p6_name": "Bank Simulator",
             "p6_desc": "Backend application simulating banking operations.",
             "p7_name": "HTTP Client",
-            "p7_desc": "HTTP Client developed as a desktop application with Electron."
+            "p7_desc": "HTTP Client developed as a desktop application with Electron.",
+            "p8_name": "Mai Paint",
+            "p8_desc": "Desktop whiteboard app for freehand sketches and diagrams: simple, lightweight and beautiful, built with Electron.",
+            "p9_name": "Mai Screen Ruler",
+            "p9_desc": "Floating on-screen ruler to measure pixel distances anywhere on the system. Simple, lightweight and beautiful, built with Electron.",
+            "p10_name": "Mai Color Picker",
+            "p10_desc": "Eyedropper that grabs any color on screen and shows its RGB and HEX values. Simple, lightweight and beautiful, built with Electron.",
+            "p11_name": "CineScope",
+            "p11_desc": "Desktop TV show tracker: discover and search series, save them to your watchlist and follow the release calendar for upcoming episodes."
         },
         "filterLabel": "Filter by technology",
         "opensNewTab": "(opens in a new tab)"
